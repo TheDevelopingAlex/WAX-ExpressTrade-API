@@ -1,0 +1,881 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ICase &mdash; WAX ExpressTrade 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ICaseSite" href="icasesite.html" />
+    <link rel="prev" title="Quick Overview" href="overview.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../initial_testing.html">Initial Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backend.html">Backend (Server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontend.html">Frontend (Website)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Quick Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ICase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#icase-getcaseschema">ICase/GetCaseSchema</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#icase-getcaseodds">ICase/GetCaseOdds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#icase-getminimumopenvolume">ICase/GetMinimumOpenVolume</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#icase-openwithkeys">ICase/OpenWithKeys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oauth-scopes">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="icasesite.html">ICaseSite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iethereum.html">IEthereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iitem.html">IItem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="itrade.html">ITrade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iuser.html">IUser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional.html">Additional Information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WAX ExpressTrade</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ICase</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/interfaces/icase.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="icase">
+<span id="sec-icase"></span><h1><a class="toc-backref" href="#id11">ICase</a><a class="headerlink" href="#icase" title="Permalink to this headline">¶</a></h1>
+<p>Endpoints to handle cases</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#icase" id="id11">ICase</a><ul>
+<li><a class="reference internal" href="#icase-getcaseschema" id="id12">ICase/GetCaseSchema</a><ul>
+<li><a class="reference internal" href="#authentication" id="id13">Authentication</a></li>
+<li><a class="reference internal" href="#input" id="id14">Input</a></li>
+<li><a class="reference internal" href="#output" id="id15">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#icase-getcaseodds" id="id16">ICase/GetCaseOdds</a><ul>
+<li><a class="reference internal" href="#id1" id="id17">Authentication</a></li>
+<li><a class="reference internal" href="#id2" id="id18">Input</a></li>
+<li><a class="reference internal" href="#id3" id="id19">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#icase-getminimumopenvolume" id="id20">ICase/GetMinimumOpenVolume</a><ul>
+<li><a class="reference internal" href="#id4" id="id21">Authentication</a></li>
+<li><a class="reference internal" href="#id5" id="id22">Input</a></li>
+<li><a class="reference internal" href="#id6" id="id23">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#icase-openwithkeys" id="id24">ICase/OpenWithKeys</a><ul>
+<li><a class="reference internal" href="#id7" id="id25">Authentication</a></li>
+<li><a class="reference internal" href="#oauth-scopes" id="id26">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#id8" id="id27">Input</a></li>
+<li><a class="reference internal" href="#id9" id="id28">Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="icase-getcaseschema">
+<h2><a class="toc-backref" href="#id12">ICase/GetCaseSchema</a><a class="headerlink" href="#icase-getcaseschema" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/ICase/GetCaseSchema/v1</code></dt>
+<dd></dd></dl>
+
+<p>Returns an object with all currently available cases.</p>
+<div class="section" id="authentication">
+<h3><a class="toc-backref" href="#id13">Authentication</a><a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h3>
+<p>No auth required.</p>
+</div>
+<div class="section" id="input">
+<h3><a class="toc-backref" href="#id14">Input</a><a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="8%" />
+<col width="8%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cases</td>
+<td>int-csv</td>
+<td>&#160;</td>
+<td>A comma-separated list of case ids. If sent, output is limited to these specific cases.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="output">
+<h3><a class="toc-backref" href="#id15">Output</a><a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="9%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cases</td>
+<td>array-object</td>
+<td>cases list</td>
+</tr>
+<tr class="row-odd"><td>–id</td>
+<td>int</td>
+<td>Case ID</td>
+</tr>
+<tr class="row-even"><td>–name</td>
+<td>string</td>
+<td>Case name</td>
+</tr>
+<tr class="row-odd"><td>–image</td>
+<td>object</td>
+<td>Case image URLS (Note: these images may change when remaining_opens hits 0)</td>
+</tr>
+<tr class="row-even"><td>—-300px</td>
+<td>string</td>
+<td>URL to 300px image</td>
+</tr>
+<tr class="row-odd"><td>—-600px</td>
+<td>string</td>
+<td>URL to 600px image</td>
+</tr>
+<tr class="row-even"><td>—-900px</td>
+<td>string</td>
+<td>URL to 900px image</td>
+</tr>
+<tr class="row-odd"><td>—-1800px</td>
+<td>string</td>
+<td>URL to 1800px image</td>
+</tr>
+<tr class="row-even"><td>—-2500px</td>
+<td>string</td>
+<td>URL to 2500px image</td>
+</tr>
+<tr class="row-odd"><td>–skus</td>
+<td>array</td>
+<td>An array of item SKU in the case. Note that these may be updated overtime for vIRL cases &amp; will not always be the same.</td>
+</tr>
+<tr class="row-even"><td>–key_amount_per_case</td>
+<td>int</td>
+<td>Number of keys required per 1 case opening</td>
+</tr>
+<tr class="row-odd"><td>–max_opens</td>
+<td>int</td>
+<td>How many total items can be created from this case</td>
+</tr>
+<tr class="row-even"><td>–remaining_opens</td>
+<td>int</td>
+<td>How many items are remaining to be unboxed from this case. If this is 0, the case is depleted and cannot be opened anymore.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="icase-getcaseodds">
+<h2><a class="toc-backref" href="#id16">ICase/GetCaseOdds</a><a class="headerlink" href="#icase-getcaseodds" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/ICase/GetCaseOdds/v1</code></dt>
+<dd></dd></dl>
+
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id17">Authentication</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>No auth required.</p>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id18">Input</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="8%" />
+<col width="8%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cases</td>
+<td>int-csv</td>
+<td>&#160;</td>
+<td>A comma-separated list of case ids. If sent, output is limited to these specific cases.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id19">Output</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="12%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cases</td>
+<td>array-object</td>
+<td>An array of objects containing each case</td>
+</tr>
+<tr class="row-odd"><td>–id</td>
+<td>int</td>
+<td>Case ID</td>
+</tr>
+<tr class="row-even"><td>–name</td>
+<td>string</td>
+<td>Case Name</td>
+</tr>
+<tr class="row-odd"><td>–total_weight</td>
+<td>string</td>
+<td>Total weight of case in kilograms</td>
+</tr>
+<tr class="row-even"><td>–total_percent</td>
+<td>string</td>
+<td>Total percent, relative_percent’s added together.</td>
+</tr>
+<tr class="row-odd"><td>–odds</td>
+<td>array-object</td>
+<td>An array containing object lists of odds per sku</td>
+</tr>
+<tr class="row-even"><td>—-sku</td>
+<td>int</td>
+<td>Item sku for VGO, def_id for other apps/items</td>
+</tr>
+<tr class="row-odd"><td>—-weight</td>
+<td>string</td>
+<td>Weight correponding to total_weight</td>
+</tr>
+<tr class="row-even"><td>—-relative_weight</td>
+<td>string</td>
+<td>Weight relative to all other items in the case</td>
+</tr>
+<tr class="row-odd"><td>—-relative_percent</td>
+<td>string</td>
+<td>% chance of receiving this item, can be displayed to user. (relative_weight * 100)</td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Example Output (<a class="reference external" href="https://api-trade.opskins.com/ICase/GetCaseOdds/v1?cases=1">https://api-trade.opskins.com/ICase/GetCaseOdds/v1?cases=1</a>)</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    <span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1545432800</span><span class="p">,</span>
+    <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;cases&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Weapon Case 1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;total_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;258917554&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;total_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;99.99999999999986&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;odds&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;780000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00301254197697&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.30125419769723&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;780000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00301254197697&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.30125419769723&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">102</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10385844&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.04011255258498&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;4.01125525849823&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10385844&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.04011255258498&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;4.01125525849823&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10385844&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.04011255258498&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;4.01125525849823&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">105</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;12177681&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.04703304512138&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;4.70330451213825&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">106</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;12177681&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.04703304512138&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;4.70330451213825&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">107</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;12177681&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.04703304512138&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;4.70330451213825&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">108</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;12177681&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.04703304512138&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;4.70330451213825&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">109</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;12177681&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.04703304512138&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;4.70330451213825&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">110</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;23580231&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.09107235347975&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;9.10723534797490&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">111</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;23580231&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.09107235347975&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;9.10723534797490&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">112</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;23580231&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.09107235347975&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;9.10723534797490&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">113</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;23580231&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.09107235347975&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;9.10723534797490&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">114</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;23580231&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.09107235347975&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;9.10723534797490&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">115</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;23580231&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.09107235347975&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;9.10723534797490&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">116</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;23580231&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.09107235347975&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;9.10723534797490&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10001</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10002</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10003</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10004</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10005</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10006</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10007</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10008</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10009</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10010</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10011</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10012</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10013</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10014</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10015</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10016</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10017</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10018</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10019</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10020</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10021</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10022</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10023</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;sku&quot;</span><span class="p">:</span> <span class="mi">10024</span><span class="p">,</span>
+                <span class="nt">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_weight&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00003862233304&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;relative_percent&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00386223330381&quot;</span>
+            <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="icase-getminimumopenvolume">
+<h2><a class="toc-backref" href="#id20">ICase/GetMinimumOpenVolume</a><a class="headerlink" href="#icase-getminimumopenvolume" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/ICase/GetMinimumOpenVolume/v1</code></dt>
+<dd></dd></dl>
+
+<p>Returns the number of cases required to open in each case-opening request.</p>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id21">Authentication</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>No auth required.</p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id22">Input</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>none</p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id23">Output</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="7%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>count</td>
+<td>int</td>
+<td>The number of cases required to open in each case-opening request.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="icase-openwithkeys">
+<h2><a class="toc-backref" href="#id24">ICase/OpenWithKeys</a><a class="headerlink" href="#icase-openwithkeys" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-info admonition">
+<p class="first admonition-title">Info</p>
+<p class="last">Endpoint is disabled until further notice. (Jan. 11 2019)</p>
+</div>
+<dl class="data">
+<dt>
+<code class="descname">POST https://api-trade.opskins.com/ICase/OpenWithKeys/v1</code></dt>
+<dd></dd></dl>
+
+<p>Open a Case with Keys</p>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id25">Authentication</a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="oauth-scopes">
+<h3><a class="toc-backref" href="#id26">OAuth Scopes</a><a class="headerlink" href="#oauth-scopes" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">manage_items</span></code></p>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id27">Input</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="6%" />
+<col width="10%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>case_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>The ID of the case being opened</td>
+</tr>
+<tr class="row-odd"><td>amount</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Number of cases to open. Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>. Maximum value of <code class="docutils literal notranslate"><span class="pre">100</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id28">Output</a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="17%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cases</td>
+<td>object</td>
+<td>Standard OpenedCase Object</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="icasesite.html" class="btn btn-neutral float-right" title="ICaseSite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral" title="Quick Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, WAX ExpressTrade
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

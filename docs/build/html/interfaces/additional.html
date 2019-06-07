@@ -1,0 +1,756 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Additional Information &mdash; WAX ExpressTrade 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="IUser" href="iuser.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../initial_testing.html">Initial Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backend.html">Backend (Server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontend.html">Frontend (Website)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Quick Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="icase.html">ICase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="icasesite.html">ICaseSite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iethereum.html">IEthereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iitem.html">IItem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="itrade.html">ITrade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iuser.html">IUser</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#standard-openedcase-object">Standard OpenedCase Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#case-status">Case Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-item-object">Standard Item Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-output-for-standard-item-object">Example Output for Standard Item Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-trade-offer-object">Standard Trade Offer Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#offer-states">Offer States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-user-profile-object">Standard User Profile Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-user-public-profile-object">Standard User Public Profile Object</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WAX ExpressTrade</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Additional Information</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/interfaces/additional.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="additional-information">
+<h1><a class="toc-backref" href="#id3">Additional Information</a><a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#additional-information" id="id3">Additional Information</a><ul>
+<li><a class="reference internal" href="#standard-openedcase-object" id="id4">Standard OpenedCase Object</a></li>
+<li><a class="reference internal" href="#case-status" id="id5">Case Status</a></li>
+<li><a class="reference internal" href="#standard-item-object" id="id6">Standard Item Object</a></li>
+<li><a class="reference internal" href="#example-output-for-standard-item-object" id="id7">Example Output for Standard Item Object</a></li>
+<li><a class="reference internal" href="#standard-trade-offer-object" id="id8">Standard Trade Offer Object</a></li>
+<li><a class="reference internal" href="#offer-states" id="id9">Offer States</a></li>
+<li><a class="reference internal" href="#standard-user-profile-object" id="id10">Standard User Profile Object</a></li>
+<li><a class="reference internal" href="#standard-user-public-profile-object" id="id11">Standard User Public Profile Object</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="standard-openedcase-object">
+<h2><a class="toc-backref" href="#id4">Standard OpenedCase Object</a><a class="headerlink" href="#standard-openedcase-object" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="14%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td>int</td>
+<td>Unique Case ID</td>
+</tr>
+<tr class="row-odd"><td>status</td>
+<td>int</td>
+<td>Case Status ID</td>
+</tr>
+<tr class="row-even"><td>status_text</td>
+<td>string</td>
+<td>Case Status Description</td>
+</tr>
+<tr class="row-odd"><td>case_id</td>
+<td>int</td>
+<td>Case Schema ID</td>
+</tr>
+<tr class="row-even"><td>case_site_trade_offer_id</td>
+<td>int</td>
+<td>Trade Offer ID</td>
+</tr>
+<tr class="row-odd"><td>item</td>
+<td>object</td>
+<td>Standard Item Object</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="case-status">
+<h2><a class="toc-backref" href="#id5">Case Status</a><a class="headerlink" href="#case-status" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>STATE_ERROR = <cite>1</cite></li>
+<li>STATE_PENDING = <cite>2</cite></li>
+<li>STATE_OPENED = <cite>3</cite></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Example Output for Standard OpenedCase Object</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+   <span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="mi">1535545650</span><span class="p">,</span>
+   <span class="nt">&quot;response&quot;</span><span class="p">:{</span>
+     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+     <span class="nt">&quot;status_text&quot;</span><span class="p">:</span> <span class="s2">&quot;Opened&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;case_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;case_site_trade_offer_id&quot;</span><span class="p">:</span> <span class="mi">3215</span><span class="p">,</span>
+     <span class="nt">&quot;item&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="standard-item-object">
+<h2><a class="toc-backref" href="#id6">Standard Item Object</a><a class="headerlink" href="#standard-item-object" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="5%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td>int</td>
+<td>Item ID</td>
+</tr>
+<tr class="row-odd"><td>internal_app_id</td>
+<td>int</td>
+<td>Internal App ID (see ITrade/GetApps)</td>
+</tr>
+<tr class="row-even"><td>sku</td>
+<td>int</td>
+<td>Item definition (meta-data) SKU #</td>
+</tr>
+<tr class="row-odd"><td>wear</td>
+<td>float</td>
+<td>Wear float value, only applicable for certain apps</td>
+</tr>
+<tr class="row-even"><td>trade_hold_expires</td>
+<td>int / null</td>
+<td>Trade hold expiration date. null if no trade hold</td>
+</tr>
+<tr class="row-odd"><td>name</td>
+<td>string</td>
+<td>Market name e.g. “MAG-7 Gold Digger (Factory New)”</td>
+</tr>
+<tr class="row-even"><td>category</td>
+<td>string</td>
+<td>Category name e.g. “Restricted Rifle”</td>
+</tr>
+<tr class="row-odd"><td>rarity</td>
+<td>string</td>
+<td>Category rarity e.g. “Restricted” – only outputted for VGO</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td>string</td>
+<td>Category type e.g. “Rifle” – only outputted for VGO</td>
+</tr>
+<tr class="row-odd"><td>color</td>
+<td>string</td>
+<td>Color hex, includes #</td>
+</tr>
+<tr class="row-even"><td>image</td>
+<td>object</td>
+<td>Generic image URLs</td>
+</tr>
+<tr class="row-odd"><td>–300px</td>
+<td>string</td>
+<td>300px image URL - <a class="reference external" href="https://files.opskins.media/file/vgo-img/item/dual-berettas-trigger-happy-battle-scarred-300.png">https://files.opskins.media/file/vgo-img/item/dual-berettas-trigger-happy-battle-scarred-300.png</a></td>
+</tr>
+<tr class="row-even"><td>–600px</td>
+<td>string</td>
+<td>600px image URL - <a class="reference external" href="https://files.opskins.media/file/vgo-img/item/dual-berettas-trigger-happy-battle-scarred-600.png">https://files.opskins.media/file/vgo-img/item/dual-berettas-trigger-happy-battle-scarred-600.png</a></td>
+</tr>
+<tr class="row-odd"><td>suggested_price</td>
+<td>int</td>
+<td>OPSkins 7-day suggested price (US cents)</td>
+</tr>
+<tr class="row-even"><td>suggested_price_floor</td>
+<td>int</td>
+<td>(Only for VGO) The minimum viable suggested price, does not change.</td>
+</tr>
+<tr class="row-odd"><td>preview_urls</td>
+<td>object</td>
+<td>Field Inspection URLs for VGO items. Some of these properties may not be outputted if not available. If they are provided, the image or video itself may not be generated yet, so you should fallback to generic images provided in image object.</td>
+</tr>
+<tr class="row-even"><td>–thumb_image</td>
+<td>string</td>
+<td><a class="reference external" href="https://files.opskins.media/file/vgo-img/previews/163609_thumb.jpg">https://files.opskins.media/file/vgo-img/previews/163609_thumb.jpg</a></td>
+</tr>
+<tr class="row-odd"><td>–front_image</td>
+<td>string</td>
+<td><a class="reference external" href="https://files.opskins.media/file/vgo-img/previews/163638_front.jpg">https://files.opskins.media/file/vgo-img/previews/163638_front.jpg</a></td>
+</tr>
+<tr class="row-even"><td>–back_image</td>
+<td>string</td>
+<td><a class="reference external" href="https://files.opskins.media/file/vgo-img/previews/163638_back.jpg">https://files.opskins.media/file/vgo-img/previews/163638_back.jpg</a></td>
+</tr>
+<tr class="row-odd"><td>–video</td>
+<td>string</td>
+<td><a class="reference external" href="https://files.opskins.media/file/vgo-img/previews/163638_video.webm">https://files.opskins.media/file/vgo-img/previews/163638_video.webm</a></td>
+</tr>
+<tr class="row-even"><td>inspect</td>
+<td>string / null</td>
+<td>Steam in-game inspection URL. Can be null.</td>
+</tr>
+<tr class="row-odd"><td>eth_inspect</td>
+<td>string / null</td>
+<td>Etherscan.io Ethereum Transaction URL. null for inapplicable apps.</td>
+</tr>
+<tr class="row-even"><td>pattern_index</td>
+<td>int</td>
+<td>Pattern index (value between 1-1000) (only available for VGO, null for other apps)</td>
+</tr>
+<tr class="row-odd"><td>paint_index</td>
+<td>int / null</td>
+<td>Paint index value for a CS:GO item. 0 or null for items without a paint-index.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="example-output-for-standard-item-object">
+<h2><a class="toc-backref" href="#id7">Example Output for Standard Item Object</a><a class="headerlink" href="#example-output-for-standard-item-object" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Example Output for Standard Item Object</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">363645</span><span class="p">,</span>
+   <span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="mi">10006</span><span class="p">,</span>
+   <span class="nt">&quot;wear&quot;</span><span class="p">:</span><span class="mf">0.583130179639101</span><span class="p">,</span>
+   <span class="nt">&quot;pattern_index&quot;</span><span class="p">:</span><span class="mi">549</span><span class="p">,</span>
+   <span class="nt">&quot;preview_urls&quot;</span><span class="p">:{</span>
+      <span class="nt">&quot;thumb_image&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/previews/164325_thumb.jpg&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;front_image&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/previews/164342_front.jpg&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;back_image&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/previews/164342_back.jpg&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;video&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/previews/164342_video.webm&quot;</span>
+   <span class="p">},</span>
+   <span class="nt">&quot;eth_inspect&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+   <span class="nt">&quot;trade_hold_expires&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+   <span class="nt">&quot;internal_app_id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+   <span class="nt">&quot;inspect&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+   <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Karambit | Poison Target (Factory New)&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;Covert Knife&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;rarity&quot;</span><span class="p">:</span><span class="s2">&quot;Covert&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Knife&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;paint_index&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+   <span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;#eb4b4b&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;image&quot;</span><span class="p">:{</span>
+      <span class="nt">&quot;300px&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/karambit-poison-target-factory-new-300.png&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;600px&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/karambit-poison-target-factory-new-600.png&quot;</span>
+   <span class="p">},</span>
+   <span class="nt">&quot;suggested_price&quot;</span><span class="p">:</span><span class="mi">71436</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="standard-trade-offer-object">
+<h2><a class="toc-backref" href="#id8">Standard Trade Offer Object</a><a class="headerlink" href="#standard-trade-offer-object" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="8%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offer</td>
+<td>object</td>
+<td>Holds offer and item data</td>
+</tr>
+<tr class="row-odd"><td>–id</td>
+<td>int</td>
+<td>offer id</td>
+</tr>
+<tr class="row-even"><td>–sender</td>
+<td>object</td>
+<td>Offer sender’s information</td>
+</tr>
+<tr class="row-odd"><td>—-uid</td>
+<td>int</td>
+<td>Sender’s uid</td>
+</tr>
+<tr class="row-even"><td>—-steam_id</td>
+<td>string</td>
+<td>Senders’s SteamID</td>
+</tr>
+<tr class="row-odd"><td>—-display_name</td>
+<td>string</td>
+<td>Sender’s display name</td>
+</tr>
+<tr class="row-even"><td>—-avatar</td>
+<td>string</td>
+<td>Sender’s avatar image url</td>
+</tr>
+<tr class="row-odd"><td>—-verified</td>
+<td>bool</td>
+<td>Is this user verified on OPSkins by support?</td>
+</tr>
+<tr class="row-even"><td>—-items</td>
+<td>object</td>
+<td>Items which sender offered for trade in the offer. Standard Item Object</td>
+</tr>
+<tr class="row-odd"><td>–recipient</td>
+<td>object</td>
+<td>Offer recipient’s information</td>
+</tr>
+<tr class="row-even"><td>—-uid</td>
+<td>int</td>
+<td>Recipient’s uid</td>
+</tr>
+<tr class="row-odd"><td>—-steam_id</td>
+<td>string</td>
+<td>Recipient’s SteamID</td>
+</tr>
+<tr class="row-even"><td>—-display_name</td>
+<td>string</td>
+<td>Recipient’s display name</td>
+</tr>
+<tr class="row-odd"><td>—-avatar</td>
+<td>string</td>
+<td>Recipient’s avatar image url</td>
+</tr>
+<tr class="row-even"><td>—-verified</td>
+<td>bool</td>
+<td>Is this user verified on OPSkins by support?</td>
+</tr>
+<tr class="row-odd"><td>—-items</td>
+<td>object</td>
+<td>Recipient’s items which sender wanted to receive in the offer. Standard Item Object</td>
+</tr>
+<tr class="row-even"><td>–state</td>
+<td>int</td>
+<td>Offer state int – Offer States</td>
+</tr>
+<tr class="row-odd"><td>–state_name</td>
+<td>string</td>
+<td>State’s display name e.g “Active”</td>
+</tr>
+<tr class="row-even"><td>–time_created</td>
+<td>int</td>
+<td>Offer creation unix timestamp</td>
+</tr>
+<tr class="row-odd"><td>–time_updated</td>
+<td>int</td>
+<td>Last update unix timestamp</td>
+</tr>
+<tr class="row-even"><td>–time_expires</td>
+<td>int</td>
+<td>Offer expiration unix timestamp</td>
+</tr>
+<tr class="row-odd"><td>–message</td>
+<td>string</td>
+<td>Message from sender to receiver</td>
+</tr>
+<tr class="row-even"><td>–is_gift</td>
+<td>boolean</td>
+<td>Whether or not this offer is a gift (you are not losing any items).</td>
+</tr>
+<tr class="row-odd"><td>–is_case_opening</td>
+<td>boolean</td>
+<td>Whether or not this offer is from a vCase website.</td>
+</tr>
+<tr class="row-even"><td>–sent_by_you</td>
+<td>bool</td>
+<td>Whether or not the offer was sent by you. Not outputted on no-auth endpoints.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="offer-states">
+<h2><a class="toc-backref" href="#id9">Offer States</a><a class="headerlink" href="#offer-states" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>STATE_ACTIVE = <cite>2</cite></dt>
+<dd><ul class="first last">
+<li>The offer is active and the recipient can accept it to exchange the items</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>STATE_ACCEPTED = <cite>3</cite></dt>
+<dd><ul class="first last">
+<li>The recipient accepted the offer and items were exchanged</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>STATE_EXPIRED = <cite>5</cite></dt>
+<dd><ul class="first last">
+<li>The offer expired from inactivity</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>STATE_CANCELED = <cite>6</cite></dt>
+<dd><ul class="first last">
+<li>The sender canceled the offer</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>STATE_DECLINED = <cite>7</cite></dt>
+<dd><ul class="first last">
+<li>The recipient declined the offer</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>STATE_INVALID_ITEMS = <cite>8</cite></dt>
+<dd><ul class="first last">
+<li>One of the items in the offer is no longer available so the offer was canceled automatically</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>STATE_PENDING_CASE_OPEN = <cite>9</cite></dt>
+<dd><ul class="first last">
+<li>The trade offer was initiated by a VCase site and it’s awaiting eth confirmations.  User’s keys have been removed, but may be restored on error later.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>STATE_EXPIRED_CASE_OPEN = <cite>10</cite></dt>
+<dd><ul class="first last">
+<li>The trade offer was initiated by a VCase site and there was an error opening case due to back-end issues.  No items should have been exchanged.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>STATE_FAILED_CASE_OPEN = <cite>12</cite></dt>
+<dd><ul class="first last">
+<li>The trade offer was initiated by a VCase site and we were unable to generate items on the blockchain, so the user’s keys have been refunded.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>If a case opening succeeds from a vcase site, the offer will go into <cite>STATE_ACCEPTED</cite> and the items generated from the case opening will appear in the trade offer as if they came from the vcase site user.  The end-result is that the user will see their keys exchanged for items in the trade offer on success.</p>
+</div>
+<div class="section" id="standard-user-profile-object">
+<h2><a class="toc-backref" href="#id10">Standard User Profile Object</a><a class="headerlink" href="#standard-user-profile-object" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="9%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>user</td>
+<td>object</td>
+<td>Holds user info</td>
+</tr>
+<tr class="row-odd"><td>–id</td>
+<td>int</td>
+<td>OPSkins.com User ID</td>
+</tr>
+<tr class="row-even"><td>–steam_id</td>
+<td>string</td>
+<td>Steam ID64</td>
+</tr>
+<tr class="row-odd"><td>–display_name</td>
+<td>string</td>
+<td>Display name</td>
+</tr>
+<tr class="row-even"><td>–avatar</td>
+<td>string</td>
+<td>URL to avatar</td>
+</tr>
+<tr class="row-odd"><td>–twofactor_enabled</td>
+<td>boolean</td>
+<td>Whether or not user has Two-Factor Auth enabled.</td>
+</tr>
+<tr class="row-even"><td>–api_key_exists</td>
+<td>boolean</td>
+<td>See whether user has API Key</td>
+</tr>
+<tr class="row-odd"><td>–sms_phone</td>
+<td>string/null</td>
+<td>(Optional via with_extra) Phone number used for SMS verification</td>
+</tr>
+<tr class="row-even"><td>–contact_email</td>
+<td>string/null</td>
+<td>(Optional via with_extra) Email address</td>
+</tr>
+<tr class="row-odd"><td>–inventory_is_private</td>
+<td>boolean</td>
+<td>(Optional via with_extra) Set whether inventory is private (nobody can see it, even with token)</td>
+</tr>
+<tr class="row-even"><td>–allow_twofactor_code_reuse</td>
+<td>boolean</td>
+<td>Allow Two Factor code reuse for certain features (Send Offer, Accept Offer)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="standard-user-public-profile-object">
+<h2><a class="toc-backref" href="#id11">Standard User Public Profile Object</a><a class="headerlink" href="#standard-user-public-profile-object" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="22%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>user_data</td>
+<td>object</td>
+<td>Holds user info</td>
+</tr>
+<tr class="row-odd"><td>–username</td>
+<td>string</td>
+<td>Display name</td>
+</tr>
+<tr class="row-even"><td>–avatar</td>
+<td>string</td>
+<td>URL to avatar</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="iuser.html" class="btn btn-neutral" title="IUser" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, WAX ExpressTrade
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

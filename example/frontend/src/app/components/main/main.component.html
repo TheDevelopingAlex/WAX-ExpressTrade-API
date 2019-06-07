@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col" *ngFor="let case of cases">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ case.image['300px'] }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ case.name }}</h5>
+          <p class="card-text">SKUS: <br> {{ case.skus}}</p>
+          <div class="input-group">
+             <input type="number" class="form-control" placeholder="Keys" aria-label="keys" value="1" min="1" #keys>
+             <div class="input-group-append">
+               <span class="input-group-text btn btn-primary" (click)="openCase(case.id, keys.value)">Open</span>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

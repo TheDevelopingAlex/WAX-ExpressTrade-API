@@ -1,0 +1,1347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ITrade &mdash; WAX ExpressTrade 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IUser" href="iuser.html" />
+    <link rel="prev" title="IItem" href="iitem.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../initial_testing.html">Initial Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backend.html">Backend (Server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontend.html">Frontend (Website)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Quick Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="icase.html">ICase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="icasesite.html">ICaseSite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iethereum.html">IEthereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iitem.html">IItem</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ITrade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#itrade-acceptoffer">ITrade/AcceptOffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oauth-scopes">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#itrade-canceloffer">ITrade/CancelOffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#itrade-getapps">ITrade/GetApps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#itrade-getoffer">ITrade/GetOffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#itrade-getoffers">ITrade/GetOffers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#itrade-gettradeurl">ITrade/GetTradeUrl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#itrade-getuserinventory">ITrade/GetUserInventory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sort-parameter-values">Sort parameter values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#itrade-getuserinventoryfromsteamid">ITrade/GetUserInventoryFromSteamId</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id23">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Sort parameter values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#itrade-regeneratetradeurl">ITrade/RegenerateTradeUrl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id28">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id31">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#itrade-sendoffer">ITrade/SendOffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id32">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id35">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#itrade-sendoffertosteamid">ITrade/SendOfferToSteamId</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id36">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id38">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id39">Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iuser.html">IUser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional.html">Additional Information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WAX ExpressTrade</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ITrade</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/interfaces/itrade.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="itrade">
+<span id="sec-itrade"></span><h1><a class="toc-backref" href="#id41">ITrade</a><a class="headerlink" href="#itrade" title="Permalink to this headline">¶</a></h1>
+<p>Endpoints which allows Peer-to-Peer Trading.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#itrade" id="id41">ITrade</a><ul>
+<li><a class="reference internal" href="#itrade-acceptoffer" id="id42">ITrade/AcceptOffer</a><ul>
+<li><a class="reference internal" href="#authentication" id="id43">Authentication</a></li>
+<li><a class="reference internal" href="#oauth-scopes" id="id44">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#input" id="id45">Input</a></li>
+<li><a class="reference internal" href="#output" id="id46">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#itrade-canceloffer" id="id47">ITrade/CancelOffer</a><ul>
+<li><a class="reference internal" href="#id1" id="id48">Authentication</a></li>
+<li><a class="reference internal" href="#id2" id="id49">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#id3" id="id50">Input</a></li>
+<li><a class="reference internal" href="#id4" id="id51">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#itrade-getapps" id="id52">ITrade/GetApps</a><ul>
+<li><a class="reference internal" href="#id5" id="id53">Authentication</a></li>
+<li><a class="reference internal" href="#id6" id="id54">Input</a></li>
+<li><a class="reference internal" href="#id7" id="id55">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#itrade-getoffer" id="id56">ITrade/GetOffer</a><ul>
+<li><a class="reference internal" href="#id8" id="id57">Authentication</a></li>
+<li><a class="reference internal" href="#id9" id="id58">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#id10" id="id59">Input</a></li>
+<li><a class="reference internal" href="#id11" id="id60">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#itrade-getoffers" id="id61">ITrade/GetOffers</a><ul>
+<li><a class="reference internal" href="#id12" id="id62">Authentication</a></li>
+<li><a class="reference internal" href="#id13" id="id63">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#id14" id="id64">Input</a></li>
+<li><a class="reference internal" href="#id15" id="id65">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#itrade-gettradeurl" id="id66">ITrade/GetTradeUrl</a><ul>
+<li><a class="reference internal" href="#id16" id="id67">Authentication</a></li>
+<li><a class="reference internal" href="#id17" id="id68">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#id18" id="id69">Input</a></li>
+<li><a class="reference internal" href="#id19" id="id70">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#itrade-getuserinventory" id="id71">ITrade/GetUserInventory</a><ul>
+<li><a class="reference internal" href="#id20" id="id72">Authentication</a></li>
+<li><a class="reference internal" href="#id21" id="id73">Input</a></li>
+<li><a class="reference internal" href="#id22" id="id74">Output</a></li>
+<li><a class="reference internal" href="#sort-parameter-values" id="id75">Sort parameter values</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#itrade-getuserinventoryfromsteamid" id="id76">ITrade/GetUserInventoryFromSteamId</a><ul>
+<li><a class="reference internal" href="#id23" id="id77">Authentication</a></li>
+<li><a class="reference internal" href="#id24" id="id78">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#id25" id="id79">Input</a></li>
+<li><a class="reference internal" href="#id26" id="id80">Output</a></li>
+<li><a class="reference internal" href="#id27" id="id81">Sort parameter values</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#itrade-regeneratetradeurl" id="id82">ITrade/RegenerateTradeUrl</a><ul>
+<li><a class="reference internal" href="#id28" id="id83">Authentication</a></li>
+<li><a class="reference internal" href="#id29" id="id84">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#id30" id="id85">Input</a></li>
+<li><a class="reference internal" href="#id31" id="id86">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#itrade-sendoffer" id="id87">ITrade/SendOffer</a><ul>
+<li><a class="reference internal" href="#id32" id="id88">Authentication</a></li>
+<li><a class="reference internal" href="#id33" id="id89">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#id34" id="id90">Input</a></li>
+<li><a class="reference internal" href="#id35" id="id91">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#itrade-sendoffertosteamid" id="id92">ITrade/SendOfferToSteamId</a><ul>
+<li><a class="reference internal" href="#id36" id="id93">Authentication</a></li>
+<li><a class="reference internal" href="#id37" id="id94">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#id38" id="id95">Input</a></li>
+<li><a class="reference internal" href="#id39" id="id96">Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="itrade-acceptoffer">
+<h2><a class="toc-backref" href="#id42">ITrade/AcceptOffer</a><a class="headerlink" href="#itrade-acceptoffer" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">POST https://api-trade.opskins.com/ITrade/AcceptOffer/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Accepts offer sent by another user</p>
+<div class="section" id="authentication">
+<h3><a class="toc-backref" href="#id43">Authentication</a><a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="oauth-scopes">
+<h3><a class="toc-backref" href="#id44">OAuth Scopes</a><a class="headerlink" href="#oauth-scopes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">trades</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">open_cases</span></code> (restricted to only case-opening offers)</li>
+</ul>
+</div>
+<div class="section" id="input">
+<h3><a class="toc-backref" href="#id45">Input</a><a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="12%" />
+<col width="14%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>twofactor_code</td>
+<td>string</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>2-factor authentication code</td>
+</tr>
+<tr class="row-odd"><td>offer_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Trade offer Id you want to accept</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="output">
+<h3><a class="toc-backref" href="#id46">Output</a><a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offer</td>
+<td>object</td>
+<td>Standard Trade Offer Object</td>
+</tr>
+<tr class="row-odd"><td>new items</td>
+<td>array-object</td>
+<td>New items for the recipient (user that makes this API call). Standard Item Object</td>
+</tr>
+<tr class="row-even"><td>failed_cases</td>
+<td>int</td>
+<td>A count of failed cases opened with keys, 0 if none failed.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="itrade-canceloffer">
+<h2><a class="toc-backref" href="#id47">ITrade/CancelOffer</a><a class="headerlink" href="#itrade-canceloffer" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">POST https://api-trade.opskins.com/ITrade/CancelOffer/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Cancels a trade offer</p>
+<p>If cancelled by the sender it will go into <cite>STATE_CANCELLED</cite> (6) and if cancelled by the receiver it will go into <cite>STATE_DECLINED</cite> (7).</p>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id48">Authentication</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id49">OAuth Scopes</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">trades</span></code></p>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id50">Input</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="7%" />
+<col width="12%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offer_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Offer ID that you’re a party to (sender or receiver)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id51">Output</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="17%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offer</td>
+<td>object</td>
+<td>Standard Trade Offer Object</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="itrade-getapps">
+<h2><a class="toc-backref" href="#id52">ITrade/GetApps</a><a class="headerlink" href="#itrade-getapps" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/ITrade/GetApps/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Get all supported apps and their descriptions.</p>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id53">Authentication</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>No auth required.</p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id54">Input</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>none</p>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id55">Output</a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="8%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>apps</td>
+<td>object</td>
+<td>List of apps and descriptions</td>
+</tr>
+<tr class="row-odd"><td>–internal_app_id</td>
+<td>int</td>
+<td>Internal App ID</td>
+</tr>
+<tr class="row-even"><td>–steam_app_id</td>
+<td>int</td>
+<td>Steam App ID</td>
+</tr>
+<tr class="row-odd"><td>–steam_context_id</td>
+<td>int</td>
+<td>Steam Context ID</td>
+</tr>
+<tr class="row-even"><td>–name</td>
+<td>string</td>
+<td>Short name of app</td>
+</tr>
+<tr class="row-odd"><td>–long_name</td>
+<td>string</td>
+<td>Long name of app</td>
+</tr>
+<tr class="row-even"><td>–img</td>
+<td>string</td>
+<td>Image URL of app icon <a class="reference external" href="https://opskins.com/images/games/logo-small-vgo.jpg">https://opskins.com/images/games/logo-small-vgo.jpg</a></td>
+</tr>
+<tr class="row-odd"><td>–img_thumb</td>
+<td>string</td>
+<td>Thumbnail image for app <a class="reference external" href="https://opskins.com/images/game-thumb-vgo.jpg">https://opskins.com/images/game-thumb-vgo.jpg</a></td>
+</tr>
+<tr class="row-even"><td>–default</td>
+<td>int</td>
+<td>If property exists, this is the default app. Not outputted for other apps.</td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="id40">
+<div class="code-block-caption"><span class="caption-text">Example Output</span><a class="headerlink" href="#id40" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1528135996</span><span class="p">,</span>
+    <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;apps&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;internal_app_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="nt">&quot;steam_app_id&quot;</span><span class="p">:</span> <span class="mi">1912</span><span class="p">,</span>
+                <span class="nt">&quot;steam_context_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;VGO&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;VGO&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;img&quot;</span><span class="p">:</span> <span class="s2">&quot;https://opskins.com/images/games/logo-small-vgo.jpg&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="itrade-getoffer">
+<h2><a class="toc-backref" href="#id56">ITrade/GetOffer</a><a class="headerlink" href="#itrade-getoffer" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/ITrade/GetOffer/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Get an individual trade offer</p>
+<p>You must be one of the parties involved in the offer (sender/receiver).</p>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id57">Authentication</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id58">OAuth Scopes</a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">items</span></code></p>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id59">Input</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="13%" />
+<col width="22%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offer_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>ID of trade offer</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id60">Output</a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="17%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offer</td>
+<td>object</td>
+<td>Standard Trade Offer Object</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="itrade-getoffers">
+<h2><a class="toc-backref" href="#id61">ITrade/GetOffers</a><a class="headerlink" href="#itrade-getoffers" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/ITrade/GetOffers/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Get user’s trade offers</p>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id62">Authentication</a><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id63">OAuth Scopes</a><a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">items</span></code></p>
+</div>
+<div class="section" id="id14">
+<h3><a class="toc-backref" href="#id64">Input</a><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="8%" />
+<col width="9%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>uid</td>
+<td>int</td>
+<td>&#160;</td>
+<td>ID of other user, involved in offers</td>
+</tr>
+<tr class="row-odd"><td>state</td>
+<td>string</td>
+<td>&#160;</td>
+<td>A comma-separated list of offer states to filter by (See available states in ITrade).</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td>string</td>
+<td>&#160;</td>
+<td>One of sent, received</td>
+</tr>
+<tr class="row-odd"><td>page</td>
+<td>int</td>
+<td>&#160;</td>
+<td>page number in response (starting with 1, default to 1)</td>
+</tr>
+<tr class="row-even"><td>per_page</td>
+<td>int</td>
+<td>&#160;</td>
+<td>number of items per_page in response (no more than 100, defaults to 100)</td>
+</tr>
+<tr class="row-odd"><td>ids</td>
+<td>int-csv</td>
+<td>&#160;</td>
+<td>Trade offer IDs list filter</td>
+</tr>
+<tr class="row-even"><td>sort</td>
+<td>string</td>
+<td>&#160;</td>
+<td>One of created, expired, modified</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id15">
+<h3><a class="toc-backref" href="#id65">Output</a><a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="18%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offers</td>
+<td>array-object</td>
+<td>Array of Standard Trade Offer Object</td>
+</tr>
+<tr class="row-odd"><td>total</td>
+<td>int</td>
+<td>Total number of offers matching the input filters</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="itrade-gettradeurl">
+<h2><a class="toc-backref" href="#id66">ITrade/GetTradeUrl</a><a class="headerlink" href="#itrade-gettradeurl" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/ITrade/GetTradeURL/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Get your account’s trade URL, allowing P2P trading.</p>
+<div class="section" id="id16">
+<h3><a class="toc-backref" href="#id67">Authentication</a><a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id17">
+<h3><a class="toc-backref" href="#id68">OAuth Scopes</a><a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">identity_basic</span></code>, <code class="docutils literal notranslate"><span class="pre">identity</span></code>, <code class="docutils literal notranslate"><span class="pre">trades</span></code></p>
+</div>
+<div class="section" id="id18">
+<h3><a class="toc-backref" href="#id69">Input</a><a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>none</p>
+</div>
+<div class="section" id="id19">
+<h3><a class="toc-backref" href="#id70">Output</a><a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="7%" />
+<col width="84%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>uid</td>
+<td>int</td>
+<td>Your OPSkins User ID</td>
+</tr>
+<tr class="row-odd"><td>token</td>
+<td>string</td>
+<td>Your trade token</td>
+</tr>
+<tr class="row-even"><td>long_url</td>
+<td>string</td>
+<td>The actual URL someone should go to in order to send a trade offer to your account.</td>
+</tr>
+<tr class="row-odd"><td>short_url</td>
+<td>string</td>
+<td>A shortened alias for long_url of the type “…/t/1/Lhn9d7fVL1U”. This redirects to the long URL.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="itrade-getuserinventory">
+<h2><a class="toc-backref" href="#id71">ITrade/GetUserInventory</a><a class="headerlink" href="#itrade-getuserinventory" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/ITrade/GetUserInventory/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Get trade offer recipient’s inventory.</p>
+<div class="section" id="id20">
+<h3><a class="toc-backref" href="#id72">Authentication</a><a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p>No auth required.</p>
+</div>
+<div class="section" id="id21">
+<h3><a class="toc-backref" href="#id73">Input</a><a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="6%" />
+<col width="8%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>uid</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>User ID of user whose inventory you want to see</td>
+</tr>
+<tr class="row-odd"><td>app_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Internal App ID (see ITrade/GetApps)</td>
+</tr>
+<tr class="row-even"><td>page</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Page number in response (starting with 1, defaults to 1)</td>
+</tr>
+<tr class="row-odd"><td>per_page</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Number of items per_page in response (no more than 500)</td>
+</tr>
+<tr class="row-even"><td>search</td>
+<td>string</td>
+<td>&#160;</td>
+<td>Additional search by item’s name</td>
+</tr>
+<tr class="row-odd"><td>sort</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Code to set how results should be sorted. See available types below or in the output response</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id22">
+<h3><a class="toc-backref" href="#id74">Output</a><a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="15%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>total</td>
+<td>int</td>
+<td>Total number of items (filtered, if search parameter is passed)</td>
+</tr>
+<tr class="row-odd"><td>items</td>
+<td>object</td>
+<td>Standard Item Object</td>
+</tr>
+<tr class="row-even"><td>user_data</td>
+<td>object</td>
+<td>Standard User Public Profile Object</td>
+</tr>
+<tr class="row-odd"><td>sort_parameters</td>
+<td>array-object</td>
+<td>Available sort parameters</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sort-parameter-values">
+<h3><a class="toc-backref" href="#id75">Sort parameter values</a><a class="headerlink" href="#sort-parameter-values" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><cite>1</cite>: By name ASC (alphabetical, <cite>z</cite> first)</li>
+<li><cite>2</cite>: By name DESC (alphabetical, <cite>a</cite> first)</li>
+<li><cite>3</cite>: By last_update ASC (oldest first)</li>
+<li><cite>4</cite>: By last_update DESC (newest first)</li>
+<li><cite>5</cite>: By suggested price ASC (lowest first)</li>
+<li><cite>6</cite>: By suggested price DESC (highest first)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="itrade-getuserinventoryfromsteamid">
+<h2><a class="toc-backref" href="#id76">ITrade/GetUserInventoryFromSteamId</a><a class="headerlink" href="#itrade-getuserinventoryfromsteamid" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/ITrade/GetUserInventoryFromSteamId/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Get trade offer recipient’s inventory by SteamID.</p>
+<div class="section" id="id23">
+<h3><a class="toc-backref" href="#id77">Authentication</a><a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id24">
+<h3><a class="toc-backref" href="#id78">OAuth Scopes</a><a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">items</span></code>, <code class="docutils literal notranslate"><span class="pre">trades</span></code></p>
+</div>
+<div class="section" id="id25">
+<h3><a class="toc-backref" href="#id79">Input</a><a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="6%" />
+<col width="8%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>steam_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Steam ID of user whose inventory you want to see</td>
+</tr>
+<tr class="row-odd"><td>app_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Internal App ID (see ITrade/GetApps)</td>
+</tr>
+<tr class="row-even"><td>page</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Page number in response (starting with 1, default to 1)</td>
+</tr>
+<tr class="row-odd"><td>per_page</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Number of items per_page in response (no more than 500)</td>
+</tr>
+<tr class="row-even"><td>search</td>
+<td>string</td>
+<td>&#160;</td>
+<td>Additional search by item’s name</td>
+</tr>
+<tr class="row-odd"><td>sort</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Code to set how results should be sorted. See available types below or in the output response</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id26">
+<h3><a class="toc-backref" href="#id80">Output</a><a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="15%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>total</td>
+<td>int</td>
+<td>Total number of items (filtered, if search parameter is passed)</td>
+</tr>
+<tr class="row-odd"><td>items</td>
+<td>object</td>
+<td>Standard Item Object</td>
+</tr>
+<tr class="row-even"><td>user_data</td>
+<td>object</td>
+<td>Standard User Public Profile Object</td>
+</tr>
+<tr class="row-odd"><td>sort_parameters</td>
+<td>array-object</td>
+<td>Available sort parameters</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id27">
+<h3><a class="toc-backref" href="#id81">Sort parameter values</a><a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><cite>1</cite>: By name ASC (alphabetical, <cite>z</cite> first)</li>
+<li><cite>2</cite>: By name DESC (alphabetical, <cite>a</cite> first)</li>
+<li><cite>3</cite>: By last_update ASC (oldest first)</li>
+<li><cite>4</cite>: By last_update DESC (newest first)</li>
+<li><cite>5</cite>: By suggested price ASC (lowest first)</li>
+<li><cite>6</cite>: By suggested price DESC (highest first)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="itrade-regeneratetradeurl">
+<h2><a class="toc-backref" href="#id82">ITrade/RegenerateTradeUrl</a><a class="headerlink" href="#itrade-regeneratetradeurl" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">POST https://api-trade.opskins.com/ITrade/RegenerateTradeURL/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Regenerate your account’s trade URL for P2P trading, invalidating the old one.</p>
+<div class="section" id="id28">
+<h3><a class="toc-backref" href="#id83">Authentication</a><a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id29">
+<h3><a class="toc-backref" href="#id84">OAuth Scopes</a><a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">edit_account</span></code></p>
+</div>
+<div class="section" id="id30">
+<h3><a class="toc-backref" href="#id85">Input</a><a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<p>none</p>
+</div>
+<div class="section" id="id31">
+<h3><a class="toc-backref" href="#id86">Output</a><a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="7%" />
+<col width="84%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>uid</td>
+<td>int</td>
+<td>Your OPSkins User ID</td>
+</tr>
+<tr class="row-odd"><td>token</td>
+<td>string</td>
+<td>Your new trade token</td>
+</tr>
+<tr class="row-even"><td>long_url</td>
+<td>string</td>
+<td>The actual URL someone should go to in order to send a trade offer to your account.</td>
+</tr>
+<tr class="row-odd"><td>short_url</td>
+<td>string</td>
+<td>A shortened alias for long_url of the type “…/t/1/Lhn9d7fVL1U”. This redirects to the long URL.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="itrade-sendoffer">
+<h2><a class="toc-backref" href="#id87">ITrade/SendOffer</a><a class="headerlink" href="#itrade-sendoffer" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">POST https://api-trade.opskins.com/ITrade/SendOffer/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Sends trade offer to another user including your and their items</p>
+<div class="section" id="id32">
+<h3><a class="toc-backref" href="#id88">Authentication</a><a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id33">
+<h3><a class="toc-backref" href="#id89">OAuth Scopes</a><a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">trades</span></code></p>
+</div>
+<div class="section" id="id34">
+<h3><a class="toc-backref" href="#id90">Input</a><a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<p>One of: <code class="docutils literal notranslate"><span class="pre">uid</span></code> + <code class="docutils literal notranslate"><span class="pre">token</span></code> <strong>or</strong> <code class="docutils literal notranslate"><span class="pre">trade_url</span></code> is required.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="6%" />
+<col width="7%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>twofactor_code</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>2-factor authentication code</td>
+</tr>
+<tr class="row-odd"><td>uid</td>
+<td>int</td>
+<td>&#160;</td>
+<td>User ID of user you want to send your trade offer to</td>
+</tr>
+<tr class="row-even"><td>token</td>
+<td>string</td>
+<td>&#160;</td>
+<td>Trade token of user you want to send your trade offer to</td>
+</tr>
+<tr class="row-odd"><td>trade_url</td>
+<td>string</td>
+<td>&#160;</td>
+<td>Trade URL of the user you want to send your trade offer to.</td>
+</tr>
+<tr class="row-even"><td>items_to_send</td>
+<td>csv-int</td>
+<td>&#160;</td>
+<td>A comma-separated list of (int) Item IDs you wish to send to recipient. Maximum 100 items.</td>
+</tr>
+<tr class="row-odd"><td>items_to_receive</td>
+<td>csv-int</td>
+<td>&#160;</td>
+<td>A comma-separated list of (int) Item IDs you wish to receive from the recipient. Maximum 100 items.</td>
+</tr>
+<tr class="row-even"><td>expiration_time</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Custom expiration time for an offer in seconds. Minimum 120 seconds (2 minutes). Defaults to 14 days.</td>
+</tr>
+<tr class="row-odd"><td>message</td>
+<td>string</td>
+<td>&#160;</td>
+<td>Trade offer message that will be displayed to the recipient</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id35">
+<h3><a class="toc-backref" href="#id91">Output</a><a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="17%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offer</td>
+<td>object</td>
+<td>Standard Trade Offer Object</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="itrade-sendoffertosteamid">
+<h2><a class="toc-backref" href="#id92">ITrade/SendOfferToSteamId</a><a class="headerlink" href="#itrade-sendoffertosteamid" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">POST https://api-trade.opskins.com/ITrade/SendOfferToSteamId/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Sends trade offer to another user, including your and their items</p>
+<div class="section" id="id36">
+<h3><a class="toc-backref" href="#id93">Authentication</a><a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id37">
+<h3><a class="toc-backref" href="#id94">OAuth Scopes</a><a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">trades</span></code></p>
+</div>
+<div class="section" id="id38">
+<h3><a class="toc-backref" href="#id95">Input</a><a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="6%" />
+<col width="7%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>twofactor_code</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>2FA Auth Code</td>
+</tr>
+<tr class="row-odd"><td>steam_id</td>
+<td>string</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Steam ID of user you want to send your trade offer to</td>
+</tr>
+<tr class="row-even"><td>items_to_send</td>
+<td>csv-int</td>
+<td>&#160;</td>
+<td>A comma-separated list of (int) Item IDs you wish to send to recipient. Maximum 100 items.</td>
+</tr>
+<tr class="row-odd"><td>items_to_receive</td>
+<td>csv-int</td>
+<td>&#160;</td>
+<td>A comma-separated list of (int) Item IDs you wish to receive from the recipient. Maximum 100 items.</td>
+</tr>
+<tr class="row-even"><td>expiration_time</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Custom expiration time for an offer in seconds. Minimum 120 seconds (2 minutes). Defaults to 14 days.</td>
+</tr>
+<tr class="row-odd"><td>message</td>
+<td>string</td>
+<td>&#160;</td>
+<td>An optional message to include with your trade offer, up to 190 characters.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id39">
+<h3><a class="toc-backref" href="#id96">Output</a><a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="17%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offer</td>
+<td>object</td>
+<td>Standard Trade Offer Object</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="iuser.html" class="btn btn-neutral float-right" title="IUser" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="iitem.html" class="btn btn-neutral" title="IItem" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, WAX ExpressTrade
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,866 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Frontend (Website) &mdash; WAX ExpressTrade 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quick Overview" href="interfaces/overview.html" />
+    <link rel="prev" title="Backend (Server)" href="backend.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial_testing.html">Initial Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backend.html">Backend (Server)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frontend (Website)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#angular">Angular</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-1">Step 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2">Step 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3">Step 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4">Step 4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-our-components">Implementing our components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-content-to-the-navbar-and-main-component">Adding content to the navbar and main component</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-5">Step 5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#focusing-on-the-api-service">Focusing on the API service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-the-service">Implementing The Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error">Error</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-6">Step 6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-examples">Additional Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-1">Example 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/overview.html">Quick Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/icase.html">ICase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/icasesite.html">ICaseSite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iethereum.html">IEthereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iitem.html">IItem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/itrade.html">ITrade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iuser.html">IUser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/additional.html">Additional Information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WAX ExpressTrade</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Frontend (Website)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/frontend.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="frontend-website">
+<h1>Frontend (Website)<a class="headerlink" href="#frontend-website" title="Permalink to this headline">¶</a></h1>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">The video for this parts can be found <a class="reference external" href="https://www.youtube.com/watch?v=b_uvwU7vBOw">here</a></p>
+</div>
+<div class="line-block">
+<div class="line">This specific section is all about on how to use your “middleware API” for your purpose. If you already know how to build a website and make request, handle your data or errors you can skip this section and head over to the <strong>Advanced Documentation</strong> to see the WAX ExpressTrade API documentation.</div>
+<div class="line"><br /></div>
+<div class="line">In this section I want to show you how you can implement your “middleware API” into an Angular web app.</div>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last"><strong>DISCLAIMER</strong> This section is just a basic tutorial on how to get started with implementing the API on a website. If you know how to do it on your own just skip this!</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">All the code written below is also available on <a class="reference external" href="https://github.com/TheDevelopingAlex/WAX-ExpressTrade-API/tree/master/example/frontend">GitHub</a>.</p>
+</div>
+<div class="section" id="angular">
+<h2>Angular<a class="headerlink" href="#angular" title="Permalink to this headline">¶</a></h2>
+<p>Angular definitely more complex than other frontend frameworks, this is why I want to give you a quick overview.</p>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>We will need <a class="reference external" href="https://nodejs.org/en/">Node.js</a>.</dt>
+<dd><ul class="first last">
+<li>Installation guide for <a class="reference external" href="http://blog.teamtreehouse.com/install-node-js-npm-windows">Windows</a></li>
+<li>Installation guide for <a class="reference external" href="https://nodejs.org/en/download/package-manager/">Linux (all versions)</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>A more advanced text editor than Notepad in Windows to write our code. Recommended free text editors:</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://atom.io/">Atom</a></li>
+<li><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> (only for Windows)</li>
+<li><a class="reference external" href="https://www.sublimetext.com/">Sublime Text</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>(Optional and only for Windows users) A different console</dt>
+<dd><ul class="first last">
+<li>I personally do not like the command prompt in Windows</li>
+<li>My favorite console so far is the <a class="reference external" href="https://git-scm.com/">GIT Console</a> (You will see why later on)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>The Angular CLI</dt>
+<dd><ul class="first last">
+<li>You can simply download Angular CLI by typing <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">&#64;angular/cli</span></code> into your console</li>
+<li>We need that to create and build our Angular application</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>Once you installed <a class="reference external" href="https://nodejs.org/en/">Node.js</a> and chose your text editor we can start coding. I will use the following setup for this tutorial</p>
+<ul class="simple">
+<li>Node version 8.11.4 (you can check it by simply opening a console and by typing in <code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">--version</span></code>)</li>
+<li>Atom (1.30.0) as my text editor with the <a class="reference external" href="https://atom.io/packages/file-icons">File Icons Package</a>  (just for cosmetic)</li>
+<li>Because I am on Windows 10, I am going to use the GIT console</li>
+</ul>
+</div>
+</div>
+<div class="section" id="step-1">
+<h2>Step 1<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h2>
+<p>Creating an setting up our application.</p>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>To create a new application type <code class="docutils literal notranslate"><span class="pre">ng</span> <span class="pre">new</span> <span class="pre">PROJECT-NAME</span></code> in a newly opened console (watch out for the path in the console)</dt>
+<dd><ul class="first last">
+<li>You can choose any project name you like, as long as it matches the criteria</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">cd</span></code> into your newly created project folder with <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">PROJECT-NAME</span></code></li>
+<li>Start your Angular application with <code class="docutils literal notranslate"><span class="pre">ng</span> <span class="pre">serve</span></code></li>
+<li>Open up your browser and type in <code class="docutils literal notranslate"><span class="pre">127.0.0.1:4200</span></code> or <code class="docutils literal notranslate"><span class="pre">localhost:4200</span></code></li>
+<li>You will be greeted with the default starter template</li>
+</ol>
+<img alt="_images/angular_starter.PNG" src="_images/angular_starter.PNG" />
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Make sure your API server is still up and running</p>
+</div>
+</div>
+<div class="section" id="step-2">
+<h2>Step 2<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Time to add components, services and directories we need for our project.</div>
+<div class="line">If you have never worked with Angular, I recommend reading <a class="reference external" href="https://angular.io/guide/architecture">this article</a> before you start coding your application.</div>
+</div>
+<ol class="arabic simple">
+<li>Cancel the <code class="docutils literal notranslate"><span class="pre">ng</span> <span class="pre">serve</span></code> with CTRL+C</li>
+<li>Change directory by typing <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">src/app/</span></code></li>
+<li>Create a new folder named <strong>components</strong> <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">components</span></code></li>
+<li>Change directory once again into the newly created directory <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">components/</span></code></li>
+<li><dl class="first docutils">
+<dt>Create your components with <code class="docutils literal notranslate"><span class="pre">ng</span> <span class="pre">g</span> <span class="pre">component</span> <span class="pre">COMPONENT-NAME</span></code></dt>
+<dd><ul class="first last">
+<li>For this tutorial we will create a component named <strong>navbar</strong> and <strong>main</strong></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>Now repeat these steps with services</p>
+<ol class="arabic simple">
+<li>We have to change directory to <code class="docutils literal notranslate"><span class="pre">src/app/</span></code> again because now we are in <code class="docutils literal notranslate"><span class="pre">src/app/componets</span></code>. Simply type <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code></li>
+<li>Create a new folder named <strong>services</strong> <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">services</span></code> and <code class="docutils literal notranslate"><span class="pre">cd</span></code> into it</li>
+<li><dl class="first docutils">
+<dt>Create your services by typing <code class="docutils literal notranslate"><span class="pre">ng</span> <span class="pre">g</span> <span class="pre">service</span> <span class="pre">SERVICE-NAME</span></code></dt>
+<dd><ul class="first last">
+<li>For this tutorial we will create a service named <code class="docutils literal notranslate"><span class="pre">api</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="line-block">
+<div class="line">That’s it for creating directories, components and files (You could generate all these things in the <code class="docutils literal notranslate"><span class="pre">src/app/</span></code> directory but it will become very messy.)</div>
+<div class="line"><br /></div>
+<div class="line">You can now serve your application once again with <code class="docutils literal notranslate"><span class="pre">ng</span> <span class="pre">serve</span></code></div>
+</div>
+</div>
+<div class="section" id="step-3">
+<h2>Step 3<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h2>
+<p>Open up your text editor and add your Angular application folder as a project folder.</p>
+<ol class="arabic simple">
+<li>Search for the file <code class="docutils literal notranslate"><span class="pre">app.module.ts</span></code> in <code class="docutils literal notranslate"><span class="pre">src/app/</span></code>.</li>
+<li>Your components should already be added to this file (If not, just look at the code given below). Your code should look something like this</li>
+</ol>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@angular/platform-browser&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./app.component&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">NavbarComponent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./components/navbar/navbar.component&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">MainComponent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./components/main/main.component&#39;</span><span class="p">;</span>
+
+<span class="kd">@NgModule</span><span class="p">({</span>
+  <span class="nx">declarations</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span><span class="p">,</span>
+    <span class="nx">NavbarComponent</span><span class="p">,</span>
+    <span class="nx">MainComponent</span>
+  <span class="p">],</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span>
+  <span class="p">],</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[],</span>
+  <span class="nx">bootstrap</span><span class="o">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Add your “API Service” by typing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">{</span> <span class="pre">ApiService</span> <span class="pre">}</span> <span class="pre">from</span> <span class="pre">'./services/api.service';</span></code> and add the <code class="docutils literal notranslate"><span class="pre">ApiService</span> <span class="pre">Class</span></code> to the providers.</li>
+</ol>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ApiService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./services/api.service&#39;</span><span class="p">;</span>
+
+<span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">ApiService</span><span class="p">],</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><dl class="first docutils">
+<dt>Next we have to add the <strong>HttpClientModule</strong> to our <code class="docutils literal notranslate"><span class="pre">app.module.ts</span></code> file to make HTTP requests to the server.</dt>
+<dd><ul class="first last">
+<li>Simply import it at the top by typing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">{</span> <span class="pre">HttpClientModule</span> <span class="pre">}</span> <span class="pre">from</span> <span class="pre">'&#64;angular/common/http';</span></code></li>
+<li>And add the <code class="docutils literal notranslate"><span class="pre">HttpClientModule</span></code> to the imports at the bottom</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>(optional) The last thing we are going to add is <a class="reference external" href="https://getbootstrap.com/">Bootstrap</a> to have some kind of nice design and a better UI</dt>
+<dd><ul class="first last">
+<li>Head over to <a class="reference external" href="https://getbootstrap.com/">https://getbootstrap.com/</a> and download the latest version (currently 4.1.3)</li>
+<li>Go for the <strong>Compiled CSS and JS</strong> Bootstrap version</li>
+<li><dl class="first docutils">
+<dt>Go to <a class="reference external" href="https://jquery.com/download/">https://jquery.com/download/</a> and download the latest version of jQuery (go for the “compresed” one)</dt>
+<dd><ul class="first last">
+<li>You are better off if you hover of the “Download the compressed, production jQuery 3.3.1” link and right-click on it to “Save link as”</li>
+<li>Save it to the Desktop for now</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Head to your Angular project folder and search for the <code class="docutils literal notranslate"><span class="pre">src/assets/</span></code> directory via your explorer</li>
+<li>Unzip the Bootstrap archive and copy the <code class="docutils literal notranslate"><span class="pre">css</span></code> and <code class="docutils literal notranslate"><span class="pre">js</span></code> folder into the <code class="docutils literal notranslate"><span class="pre">src/assets</span></code> directory</li>
+<li>Copy the jQuery.js file you saved on the Desktop into the <code class="docutils literal notranslate"><span class="pre">src/assets/js</span></code> folder</li>
+<li>Open up your text editor and search for the <code class="docutils literal notranslate"><span class="pre">angular.json</span></code> file in the project folder</li>
+<li>Search for line 25, you should see an entry called <code class="docutils literal notranslate"><span class="pre">styles</span></code>. Copy this path above the <code class="docutils literal notranslate"><span class="pre">&quot;src/styles.css&quot;</span></code> one <code class="docutils literal notranslate"><span class="pre">&quot;src/assets/css/bootstrap.min.css&quot;</span></code></li>
+<li>Underneath the <code class="docutils literal notranslate"><span class="pre">style</span></code> entry there also should be <code class="docutils literal notranslate"><span class="pre">scripts</span></code>
+- Add the two following lines
+- <code class="docutils literal notranslate"><span class="pre">&quot;src/assets/js/jquery-3.3.1.min.js&quot;</span></code>
+- <code class="docutils literal notranslate"><span class="pre">&quot;src/assets/js/bootstrap.min.js&quot;</span></code>
+- Don’t mess up the order of this two line and don’t forget a comma after the jquery entry</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>It should look like this afterwards</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;styles&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;src/assets/css/bootstrap.min.css&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;src/styles.css&quot;</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;src/assets/js/jquery-3.3.1.min.js&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;src/assets/js/bootstrap.min.js&quot;</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">The last step is to restart your Angular application by canceling the serve with CTRL+C and <code class="docutils literal notranslate"><span class="pre">ng</span> <span class="pre">serve</span></code>.</div>
+<div class="line">That was it, we can now start coding our application.</div>
+</div>
+</div>
+<div class="section" id="step-4">
+<h2>Step 4<a class="headerlink" href="#step-4" title="Permalink to this headline">¶</a></h2>
+<p>This section is about using our two created components and how to add some content on the page.</p>
+<div class="section" id="implementing-our-components">
+<h3>Implementing our components<a class="headerlink" href="#implementing-our-components" title="Permalink to this headline">¶</a></h3>
+<p>Change the code in the <code class="docutils literal notranslate"><span class="pre">app.component.html</span></code> file to this</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">app-navbar</span><span class="p">&gt;&lt;/</span><span class="nt">app-navbar</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">app-main</span><span class="p">&gt;&lt;/</span><span class="nt">app-main</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="explanation">
+<h4>Explanation<a class="headerlink" href="#explanation" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">With this two tags (which are Angular specific) we include our two created components <code class="docutils literal notranslate"><span class="pre">navbar</span></code> and <code class="docutils literal notranslate"><span class="pre">main</span></code>. The name <code class="docutils literal notranslate"><span class="pre">app-navbar</span></code> and <code class="docutils literal notranslate"><span class="pre">app-main</span></code> is specified by the component.</div>
+<div class="line">You can head over to your browser and check what has changed. You should see “navbar works” and “main works”. If not, open up the browser developer console and check for any errors.</div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-content-to-the-navbar-and-main-component">
+<h3>Adding content to the navbar and main component<a class="headerlink" href="#adding-content-to-the-navbar-and-main-component" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Head over to the navbar component and search for the <code class="docutils literal notranslate"><span class="pre">navbar.component.html</span></code> file.</li>
+<li>Copy the following template into the HTML file</li>
+</ol>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Default navbar template found on <a class="reference external" href="https://getbootstrap.com/docs/4.1/components/navbar/">https://getbootstrap.com/docs/4.1/components/navbar/</a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-expand-lg navbar-light bg-light&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin-bottom: 1em;&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>WAX Tutorial<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-toggler&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&quot;#navbarSupportedContent&quot;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&quot;navbarSupportedContent&quot;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&quot;false&quot;</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">&quot;Toggle navigation&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-toggler-icon&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;collapse navbar-collapse&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;navbarSupportedContent&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-nav mr-auto&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item active&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Home <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sr-only&quot;</span><span class="p">&gt;</span>(current)<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://trade.opskins.com/&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span><span class="p">&gt;</span>Trade<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">I have changed the navbar a little bit so we can work with it even better.</div>
+<div class="line"><br /></div>
+<div class="line">Now let’s change the main component</div>
+</div>
+<ol class="arabic simple">
+<li>Search for the main component directory to edit the <code class="docutils literal notranslate"><span class="pre">main.component.html</span></code> file.</li>
+<li>Add the following code</li>
+</ol>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Default card component</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 18rem;&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-img-top&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://via.placeholder.com/350x150&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Card image cap&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-body&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">h5</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-title&quot;</span><span class="p">&gt;</span>Card title<span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-text&quot;</span><span class="p">&gt;</span>Some quick example text to build on the card title and make up the bulk of the card&#39;s content.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="p">&gt;</span>Go somewhere<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Now save everything and head over to your browser to see the changes.</p>
+<img alt="_images/initial_design.PNG" src="_images/initial_design.PNG" />
+</div>
+</div>
+<div class="section" id="step-5">
+<h2>Step 5<a class="headerlink" href="#step-5" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Time to request data from the server and show it on our website.</div>
+</div>
+<div class="section" id="focusing-on-the-api-service">
+<h3>Focusing on the API service<a class="headerlink" href="#focusing-on-the-api-service" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Open up the <strong>api.service.ts</strong> file</li>
+<li>Copy in the following code, and check the “Explanation” below to understand what is going on.</li>
+</ol>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">HttpClient</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@angular/common/http&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">({</span>
+  <span class="nx">providedIn</span><span class="o">:</span> <span class="s1">&#39;root&#39;</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ApiService</span> <span class="p">{</span>
+
+  <span class="kr">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">_http</span>: <span class="kt">HttpClient</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+  <span class="nx">getCaseSchema() {</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_http</span><span class="p">.</span><span class="nx">get</span><span class="o">&lt;</span><span class="nx">CaseSchema</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:3000/caseschema&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">CaseSchema</span> <span class="p">{</span>
+  <span class="nx">status</span>: <span class="kt">any</span><span class="p">,</span>
+  <span class="nx">time</span>: <span class="kt">any</span><span class="p">,</span>
+  <span class="nx">response</span>: <span class="kt">any</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h4>Explanation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Once again we need the <code class="docutils literal notranslate"><span class="pre">HttpClient</span></code> to access HTTP requests</li>
+<li>To use it, we need to define it in the constructor as well</li>
+<li>We created a function that requests the “CaseSchema” from our API</li>
+<li>This function can now be called from everywhere</li>
+</ol>
+</div>
+</div>
+<div class="section" id="implementing-the-service">
+<h3>Implementing The Service<a class="headerlink" href="#implementing-the-service" title="Permalink to this headline">¶</a></h3>
+<p>So the next thing is to use our service function on the main component.</p>
+<ol class="arabic simple">
+<li>Open up the <code class="docutils literal notranslate"><span class="pre">main.component.ts</span></code> file (This file contains all the logic behind your static website)</li>
+<li>Copy the code below and paste it into the file</li>
+<li>Head to the explanation section to understand the code</li>
+</ol>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">ApiService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../../services/api.service&#39;</span>
+
+<span class="kd">@Component</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;app-main&#39;</span><span class="p">,</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;./main.component.html&#39;</span><span class="p">,</span>
+  <span class="nx">styleUrls</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;./main.component.css&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MainComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+
+  <span class="kr">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">_api</span>: <span class="kt">ApiService</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_api</span><span class="p">.</span><span class="nx">getCaseSchema</span><span class="p">()</span>
+      <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+      <span class="p">},</span> <span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+      <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngOnInit() {</span> <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h4>Explanation<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>So first of all we have to include our API service file into this one to use our function</li>
+<li>Once again we create an instance of the class as seen in the <code class="docutils literal notranslate"><span class="pre">constructor()</span></code></li>
+<li>We call the function in the constructor so once the website is loading we are requesting the data immediately</li>
+<li><dl class="first docutils">
+<dt>How does the function even work?</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal notranslate"><span class="pre">this._api.getCaseSchema()</span></code> this is just the way to call the function</li>
+<li><code class="docutils literal notranslate"><span class="pre">.subscribe()</span></code> Angular works with Observables which means you can only subscribe or unsubscribe to them (More about Observables can be found <a class="reference external" href="http://reactivex.io/documentation/observable.html">here</a>)</li>
+<li>Inside the <code class="docutils literal notranslate"><span class="pre">subscribe()</span></code> Method we can access two variables. One that contains our data called <code class="docutils literal notranslate"><span class="pre">data</span></code> in this case (You can call it whatever you want) and another one that contains any <code class="docutils literal notranslate"><span class="pre">errors</span></code> called error here (Again you can call it whatever you want)</li>
+<li>It is recommended to use a better way of handling errors than simply log them to the console.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>For now we are just printing the data to the browser developer console.</li>
+</ol>
+<p>So let’s head over to the browser and open up the console (Shortcut: F12)</p>
+</div>
+<div class="section" id="error">
+<h4>Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">So you probably see an error saying <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">'Access-Control-Allow-Origin'</span> <span class="pre">header</span> <span class="pre">is</span> <span class="pre">present</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">requested</span> <span class="pre">resource.</span></code>. This is more or less our “mistake” but actually this is a safety feature provided by your browser (I won’t go any deeper on that topic).</div>
+<div class="line"><br /></div>
+<div class="line">We can fix this by creating a proxy for this request.</div>
+</div>
+<ol class="arabic simple">
+<li>Create a file named <code class="docutils literal notranslate"><span class="pre">proxy.conf.json</span></code> in the root folder of your Angular project folder</li>
+<li>Copy and paste the following code</li>
+</ol>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;/caseschema&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:3000&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;secure&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;logLevel&quot;</span><span class="p">:</span> <span class="s2">&quot;debug&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><dl class="first docutils">
+<dt>Edit the <code class="docutils literal notranslate"><span class="pre">angular.json</span></code> file.</dt>
+<dd><ul class="first last">
+<li>Head to line ~54 (this may differ, but just look for the entry <code class="docutils literal notranslate"><span class="pre">&quot;serve&quot;</span></code>)</li>
+<li>Copy <code class="docutils literal notranslate"><span class="pre">&quot;proxyConfig&quot;:</span> <span class="pre">&quot;proxy.conf.json&quot;</span></code> into the options so it looks like this</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;serve&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;builder&quot;</span><span class="p">:</span> <span class="s2">&quot;@angular-devkit/build-angular:dev-server&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;browserTarget&quot;</span><span class="p">:</span> <span class="s2">&quot;frontend:build&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;proxyConfig&quot;</span><span class="p">:</span> <span class="s2">&quot;proxy.conf.json&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;configurations&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;production&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;browserTarget&quot;</span><span class="p">:</span> <span class="s2">&quot;frontend:build:production&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Restart the Angular serve instance by opening up the console, pressing CTRL+C and entering <code class="docutils literal notranslate"><span class="pre">ng</span> <span class="pre">serve</span></code> once again.</li>
+<li>Adjust the URL in the <code class="docutils literal notranslate"><span class="pre">api.service.ts</span></code> file from <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:3000/caseschema</span></code> to just <code class="docutils literal notranslate"><span class="pre">/caseschema</span></code></li>
+</ol>
+<p>Now head to your browsers (maybe you have to refresh the website) and take a look in the console. You now should see the data from the WAX ExpressTrade API.</p>
+</div>
+</div>
+</div>
+<div class="section" id="step-6">
+<h2>Step 6<a class="headerlink" href="#step-6" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Showing the data on the website.</div>
+<div class="line"><br /></div>
+<div class="line">For now we are only logging the data in the console but we actually want to show off the requested data. For that we have to adjust our code just a little bit.</div>
+</div>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>Changes in the <code class="docutils literal notranslate"><span class="pre">main.component.ts</span></code> file</dt>
+<dd><ul class="first last">
+<li>Create a variable above the <code class="docutils literal notranslate"><span class="pre">constructor()</span></code> like this <code class="docutils literal notranslate"><span class="pre">cases:</span> <span class="pre">any</span> <span class="pre">=</span> <span class="pre">[];</span></code></li>
+<li>Change the line <code class="docutils literal notranslate"><span class="pre">console.log(data)</span></code> to <code class="docutils literal notranslate"><span class="pre">this.cases</span> <span class="pre">=</span> <span class="pre">data.response.cases;</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Changes in the <code class="docutils literal notranslate"><span class="pre">main.component.html</span></code> file</li>
+</ol>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col&quot; *ngFor=&quot;let case of cases&quot;&gt;
+      &lt;div class=&quot;card&quot; style=&quot;width: 18rem;&quot;&gt;
+        &lt;img class=&quot;card-img-top&quot; src=&quot;{{ case.image[&#39;300px&#39;] }}&quot; alt=&quot;Card image cap&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+          &lt;h5 class=&quot;card-title&quot;&gt;{{ case.name }}&lt;/h5&gt;
+          &lt;p class=&quot;card-text&quot;&gt;SKUS: &lt;br&gt; {{ case.skus}} &lt;/p&gt;
+          &lt;a href=&quot;#&quot; class=&quot;btn btn-primary&quot;&gt;Go somewhere&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3>Explanation<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>Changes to the <code class="docutils literal notranslate"><span class="pre">main.component.ts</span></code> file</dt>
+<dd><ul class="first last">
+<li>We created the variable so we can access it later on in the HTML file.</li>
+<li>The only important thing is that the variable has to be an Array, so we can loop through it later on.</li>
+<li>Because we do not need the data to be logged in the console we just replaced it.</li>
+<li>Lastly we save the <code class="docutils literal notranslate"><span class="pre">data.response.cases</span></code> data to our created variable called <code class="docutils literal notranslate"><span class="pre">cases</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Changes made to the <code class="docutils literal notranslate"><span class="pre">main.component.html</span></code> file</dt>
+<dd><ul class="first last">
+<li>The most important line probably is line three</li>
+<li>As you can see we use the built in template syntax <code class="docutils literal notranslate"><span class="pre">*ngFor</span></code>. This is just a loop that creates as many objects as items stored in the array. In this case we have four array entries, so this loop creates four new object for us.</li>
+<li>This is a very convenient and easy way to create this objects. Especially because we can access each variable of the array individually. This means we simply use another template syntax to access data like “image”, “name” or “skus”</li>
+<li>To sum things up, this probably is the easiest and most convenient way to create an object for each, in this case, case.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>That’s it, you can check the result in your browser. It should look like this</p>
+<img alt="_images/design2.PNG" src="_images/design2.PNG" />
+</div>
+</div>
+<div class="section" id="additional-examples">
+<h2>Additional Examples<a class="headerlink" href="#additional-examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">If you are still reading this, I got more of some nice and easy examples on how to use the API.</div>
+<div class="line"><br /></div>
+<div class="line">This additional example will be about opening a specific case and handling the error if one occurs.</div>
+</div>
+<div class="section" id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<p>This piece of code will allow a user to initiate a case opening.</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">api.service.ts</span></code></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">openCase</span><span class="p">(</span><span class="nx">trade_url</span><span class="p">,</span> <span class="nx">caseId</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_http</span><span class="p">.</span><span class="nx">post</span><span class="o">&lt;</span><span class="nx">CaseSchema</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">&#39;/opencase&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">trade_url</span>: <span class="kt">trade_url</span><span class="p">,</span> <span class="nx">caseId</span>: <span class="kt">caseId</span><span class="p">,</span> <span class="nx">amount</span>: <span class="kt">amount</span> <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">main.component.ts</span></code></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">openCase</span><span class="p">(</span><span class="nx">caseId</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// Usually you want to access the trade url via the request on your server</span>
+  <span class="kd">let</span> <span class="nx">trade_url</span> <span class="o">=</span> <span class="s2">&quot;VALID TRADE URL&quot;</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">caseId</span> <span class="o">||</span> <span class="o">!</span><span class="nx">amount</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;CaseId or amount not valid!&quot;</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">amount</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;You need to open at least 1 case!&quot;</span><span class="p">);</span>
+
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">_api</span><span class="p">.</span><span class="nx">openCase</span><span class="p">(</span><span class="nx">trade_url</span><span class="p">,</span> <span class="nx">caseId</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// this should be changed to some kind of alert as well, but I am unable to test this properly because of insufficient keys</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">},</span> <span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// simple browser alert with the error</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">main.component.html</span></code></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col&quot; *ngFor=&quot;let case of cases&quot;&gt;
+      &lt;div class=&quot;card&quot; style=&quot;width: 18rem;&quot;&gt;
+        &lt;img class=&quot;card-img-top&quot; src=&quot;{{ case.image[&#39;300px&#39;] }}&quot; alt=&quot;Card image cap&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+          &lt;h5 class=&quot;card-title&quot;&gt;{{ case.name }}&lt;/h5&gt;
+          &lt;p class=&quot;card-text&quot;&gt;SKUS: &lt;br&gt; {{ case.skus}}&lt;/p&gt;
+          &lt;div class=&quot;input-group&quot;&gt;
+             &lt;input type=&quot;number&quot; class=&quot;form-control&quot; placeholder=&quot;Keys&quot; aria-label=&quot;keys&quot; value=&quot;1&quot; min=&quot;1&quot; #keys&gt;
+             &lt;div class=&quot;input-group-append&quot;&gt;
+               &lt;span class=&quot;input-group-text btn btn-primary&quot; (click)=&quot;openCase(case.id, keys.value)&quot;&gt;Open&lt;/span&gt;
+             &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre></div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">More examples following very soon…</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="interfaces/overview.html" class="btn btn-neutral float-right" title="Quick Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="backend.html" class="btn btn-neutral" title="Backend (Server)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, WAX ExpressTrade
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

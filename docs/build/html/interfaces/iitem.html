@@ -1,0 +1,1435 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IItem &mdash; WAX ExpressTrade 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ITrade" href="itrade.html" />
+    <link rel="prev" title="IEthereum" href="iethereum.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../initial_testing.html">Initial Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backend.html">Backend (Server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontend.html">Frontend (Website)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Quick Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="icase.html">ICase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="icasesite.html">ICaseSite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iethereum.html">IEthereum</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#iitem-getallitems">IItem/GetAllItems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#iitem-getitemsbyid">IItem/GetItemsById</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oauth-scopes">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#iitem-withdrawtoopskins">IItem/WithdrawToOpskins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#iitem-getitems">IItem/GetItems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vgo-wear-tier-index-map">VGO Wear Tier Index Map</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#iitem-getitemdefinitions">IItem/GetItemDefinitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#iitem-getraritystats">IItem/GetRarityStats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#iitem-instantsellrecentitems">IItem/InstantSellRecentItems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">OAuth Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#allowed-apps">Allowed Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="itrade.html">ITrade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iuser.html">IUser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional.html">Additional Information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WAX ExpressTrade</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>IItem</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/interfaces/iitem.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="iitem">
+<span id="sec-iitem"></span><h1><a class="toc-backref" href="#id32">IItem</a><a class="headerlink" href="#iitem" title="Permalink to this headline">¶</a></h1>
+<p>Endpoints to handle cases</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#iitem" id="id32">IItem</a><ul>
+<li><a class="reference internal" href="#iitem-getallitems" id="id33">IItem/GetAllItems</a><ul>
+<li><a class="reference internal" href="#authentication" id="id34">Authentication</a></li>
+<li><a class="reference internal" href="#input" id="id35">Input</a></li>
+<li><a class="reference internal" href="#output" id="id36">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iitem-getitemsbyid" id="id37">IItem/GetItemsById</a><ul>
+<li><a class="reference internal" href="#id1" id="id38">Authentication</a></li>
+<li><a class="reference internal" href="#oauth-scopes" id="id39">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#id2" id="id40">Input</a></li>
+<li><a class="reference internal" href="#id3" id="id41">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iitem-withdrawtoopskins" id="id42">IItem/WithdrawToOpskins</a><ul>
+<li><a class="reference internal" href="#id4" id="id43">Authentication</a></li>
+<li><a class="reference internal" href="#id5" id="id44">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#id6" id="id45">Input</a></li>
+<li><a class="reference internal" href="#id7" id="id46">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iitem-getitems" id="id47">IItem/GetItems</a><ul>
+<li><a class="reference internal" href="#id8" id="id48">Authentication</a></li>
+<li><a class="reference internal" href="#id9" id="id49">Input</a></li>
+<li><a class="reference internal" href="#id10" id="id50">Output</a></li>
+<li><a class="reference internal" href="#vgo-wear-tier-index-map" id="id51">VGO Wear Tier Index Map</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iitem-getitemdefinitions" id="id52">IItem/GetItemDefinitions</a><ul>
+<li><a class="reference internal" href="#id11" id="id53">Authentication</a></li>
+<li><a class="reference internal" href="#id12" id="id54">Input</a></li>
+<li><a class="reference internal" href="#id13" id="id55">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iitem-getraritystats" id="id56">IItem/GetRarityStats</a><ul>
+<li><a class="reference internal" href="#id14" id="id57">Authentication</a></li>
+<li><a class="reference internal" href="#id15" id="id58">Input</a></li>
+<li><a class="reference internal" href="#id16" id="id59">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iitem-instantsellrecentitems" id="id60">IItem/InstantSellRecentItems</a><ul>
+<li><a class="reference internal" href="#id17" id="id61">Authentication</a></li>
+<li><a class="reference internal" href="#id18" id="id62">OAuth Scopes</a></li>
+<li><a class="reference internal" href="#allowed-apps" id="id63">Allowed Apps</a></li>
+<li><a class="reference internal" href="#id19" id="id64">Input</a></li>
+<li><a class="reference internal" href="#id20" id="id65">Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="iitem-getallitems">
+<h2><a class="toc-backref" href="#id33">IItem/GetAllItems</a><a class="headerlink" href="#iitem-getallitems" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/IItem/GetAllItems/v1/</code></dt>
+<dd></dd></dl>
+
+<div class="section" id="authentication">
+<h3><a class="toc-backref" href="#id34">Authentication</a><a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="input">
+<h3><a class="toc-backref" href="#id35">Input</a><a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="7%" />
+<col width="7%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>app_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Internal App ID (see ITrade/GetApps)</td>
+</tr>
+<tr class="row-odd"><td>sku</td>
+<td>csv-int</td>
+<td>&#160;</td>
+<td>Optional filtering by SKU (for VGO), or def_id for all other items</td>
+</tr>
+<tr class="row-even"><td>name</td>
+<td>string</td>
+<td>&#160;</td>
+<td>Optional filter/search by item market name</td>
+</tr>
+<tr class="row-odd"><td>page</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Page number (starting with 1, defaults to 1)</td>
+</tr>
+<tr class="row-even"><td>per_page</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Number of items per page (default 25, max 100, min 1)</td>
+</tr>
+<tr class="row-odd"><td>sort</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Standard Item Sorts</td>
+</tr>
+<tr class="row-even"><td>no_exclusions</td>
+<td>boolean</td>
+<td>&#160;</td>
+<td>By default some items are excluded, see list below. Sending 1 here will disable all SKU exclusions.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">Default Excluded SKUs: <code class="docutils literal notranslate"><span class="pre">VGO</span> <span class="pre">1</span></code> (WAX Key)</p>
+</div>
+</div>
+<div class="section" id="output">
+<h3><a class="toc-backref" href="#id36">Output</a><a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="25%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>items</td>
+<td>array-object</td>
+<td>Array of Standard Item Object</td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">Output Example</span><a class="headerlink" href="#id21" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+     <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="mi">1538684115</span><span class="p">,</span>
+     <span class="nt">&quot;current_page&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;total_pages&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span>
+     <span class="nt">&quot;response&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;items&quot;</span><span class="p">:[</span>
+           <span class="p">{</span>
+              <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">911</span><span class="p">,</span>
+              <span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="mi">10011</span><span class="p">,</span>
+              <span class="nt">&quot;wear&quot;</span><span class="p">:</span><span class="mf">0.01472946</span><span class="p">,</span>
+              <span class="nt">&quot;pattern_index&quot;</span><span class="p">:</span><span class="mi">362</span><span class="p">,</span>
+              <span class="nt">&quot;preview_urls&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+              <span class="nt">&quot;eth_inspect&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+              <span class="nt">&quot;trade_hold_expires&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+              <span class="nt">&quot;internal_app_id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+              <span class="nt">&quot;inspect&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+              <span class="nt">&quot;tradable&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+              <span class="nt">&quot;attributes&quot;</span><span class="p">:{</span>
+                 <span class="nt">&quot;serial_sku&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
+                 <span class="nt">&quot;serial_sku_wear&quot;</span><span class="p">:</span><span class="mi">6</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Bayonet | Poison Target (Factory New)&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;Covert Knife&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;rarity&quot;</span><span class="p">:</span><span class="s2">&quot;Covert&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Knife&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;paint_index&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+              <span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;#eb4b4b&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;image&quot;</span><span class="p">:{</span>
+                 <span class="nt">&quot;300px&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/bayonet-poison-target-factory-new-300.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;600px&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/bayonet-poison-target-factory-new-600.png&quot;</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;suggested_price&quot;</span><span class="p">:</span><span class="mi">14000</span><span class="p">,</span>
+              <span class="nt">&quot;suggested_price_floor&quot;</span><span class="p">:</span><span class="mi">14000</span><span class="p">,</span>
+              <span class="nt">&quot;wear_tier_index&quot;</span><span class="p">:</span><span class="mi">1</span>
+           <span class="p">},</span>
+           <span class="p">{</span>
+              <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">910</span><span class="p">,</span>
+              <span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="mi">106</span><span class="p">,</span>
+              <span class="nt">&quot;wear&quot;</span><span class="p">:</span><span class="mf">0.17418098</span><span class="p">,</span>
+              <span class="nt">&quot;pattern_index&quot;</span><span class="p">:</span><span class="mi">769</span><span class="p">,</span>
+              <span class="nt">&quot;preview_urls&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+              <span class="nt">&quot;eth_inspect&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+              <span class="nt">&quot;trade_hold_expires&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+              <span class="nt">&quot;internal_app_id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+              <span class="nt">&quot;inspect&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+              <span class="nt">&quot;tradable&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+              <span class="nt">&quot;attributes&quot;</span><span class="p">:{</span>
+                 <span class="nt">&quot;serial_sku&quot;</span><span class="p">:</span><span class="mi">78</span><span class="p">,</span>
+                 <span class="nt">&quot;serial_sku_wear&quot;</span><span class="p">:</span><span class="mi">44</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;P90 | Critical (Field-Tested)&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;Restricted SMG&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;rarity&quot;</span><span class="p">:</span><span class="s2">&quot;Restricted&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;SMG&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;paint_index&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+              <span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;#8847ff&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;image&quot;</span><span class="p">:{</span>
+                 <span class="nt">&quot;300px&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/p90-critical-field-tested-300.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;600px&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/p90-critical-field-tested-600.png&quot;</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;suggested_price&quot;</span><span class="p">:</span><span class="mi">121</span><span class="p">,</span>
+              <span class="nt">&quot;suggested_price_floor&quot;</span><span class="p">:</span><span class="mi">121</span><span class="p">,</span>
+              <span class="nt">&quot;wear_tier_index&quot;</span><span class="p">:</span><span class="mi">3</span>
+           <span class="p">}</span>
+        <span class="p">]</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="iitem-getitemsbyid">
+<h2><a class="toc-backref" href="#id37">IItem/GetItemsById</a><a class="headerlink" href="#iitem-getitemsbyid" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/IItem/GetItemsById/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Get user items by id numbers.</p>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id38">Authentication</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="oauth-scopes">
+<h3><a class="toc-backref" href="#id39">OAuth Scopes</a><a class="headerlink" href="#oauth-scopes" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">items</span></code></p>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id40">Input</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="13%" />
+<col width="15%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>item_id</td>
+<td>int-csv</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>item id filter, separated with comma</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id41">Output</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="20%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>items</td>
+<td>array-object</td>
+<td>Array of Standard Item Object</td>
+</tr>
+<tr class="row-odd"><td>unknown_items</td>
+<td>array</td>
+<td>Array of item ids that were not found.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="iitem-withdrawtoopskins">
+<h2><a class="toc-backref" href="#id42">IItem/WithdrawToOpskins</a><a class="headerlink" href="#iitem-withdrawtoopskins" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">POST https://api-trade.opskins.com/IItem/WithdrawToOpskins/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Withdraw items to OPSkins on-site inventory.</p>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id43">Authentication</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id44">OAuth Scopes</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">manage_items</span></code></p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id45">Input</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="13%" />
+<col width="15%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>item_id</td>
+<td>int-csv</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>item id filter, separated with comma</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id46">Output</a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="14%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>results</td>
+<td>object</td>
+<td>Result from OPSkins API</td>
+</tr>
+<tr class="row-odd"><td>output</td>
+<td>object</td>
+<td>Archived items</td>
+</tr>
+<tr class="row-even"><td>-uid</td>
+<td>int</td>
+<td>OPSkins UID</td>
+</tr>
+<tr class="row-odd"><td>-items</td>
+<td>object</td>
+<td>Archived items</td>
+</tr>
+<tr class="row-even"><td>–appid</td>
+<td>int</td>
+<td>Steam App ID</td>
+</tr>
+<tr class="row-odd"><td>–contextid</td>
+<td>int</td>
+<td>Steam Context ID</td>
+</tr>
+<tr class="row-even"><td>–market_name</td>
+<td>string</td>
+<td>Market name</td>
+</tr>
+<tr class="row-odd"><td>–owner_uid</td>
+<td>int</td>
+<td>OPSkins UID</td>
+</tr>
+<tr class="row-even"><td>–wear</td>
+<td>float</td>
+<td>Wear float value</td>
+</tr>
+<tr class="row-odd"><td>–original_sale_id</td>
+<td>int</td>
+<td>Original sale ID on OPSkins</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="iitem-getitems">
+<h2><a class="toc-backref" href="#id47">IItem/GetItems</a><a class="headerlink" href="#iitem-getitems" title="Permalink to this headline">¶</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">This endpoint is deprecated in favor of IItem/GetItemDefinitions!</p>
+</div>
+<dl class="data">
+<dt>
+<code class="descname">GET or POST https://api-trade.opskins.com/IItem/GetItems/v1/</code></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li>Fully supports VGO items</li>
+<li>Partially supports other items for seamless compability with vCase sites.</li>
+<li>(Only if full list of skus is provided from ICase/GetCaseSchema &amp; Beware that the output may contain irrelavent properties to the actual item, such as wear tier)</li>
+</ul>
+<ul class="simple">
+<li>All VGO items: <code class="docutils literal notranslate"><span class="pre">https://api-trade.opskins.com/IItem/GetItems/v1</span></code></li>
+<li>Filter by SKU (VGO only): <code class="docutils literal notranslate"><span class="pre">https://api-trade.opskins.com/IItem/GetItems/v1?sku_filter=100</span></code></li>
+<li>Filter by SKU &amp; Wear Tier (VGO only): <code class="docutils literal notranslate"><span class="pre">https://api-trade.opskins.com/IItem/GetItems/v1?sku_filter=100&amp;wear_tier_index=1</span></code></li>
+<li>Multiple SKU (VGO only): <code class="docutils literal notranslate"><span class="pre">https://api-trade.opskins.com/IItem/GetItems/v1?sku_filter=100,102&amp;wear_tier_index=1</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">POST is recommended, as you could easily exceed maximum URI size with GET when using sku_filter. If you are receiving HTTP 500 errors when using GET, this is most likely the reason.</p>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id48">Authentication</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>None required.</p>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id49">Input</a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="11%" />
+<col width="12%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sku_filter</td>
+<td>int-csv</td>
+<td>&#160;</td>
+<td>Optional SKU filter, separated with comma</td>
+</tr>
+<tr class="row-odd"><td>–wear_tier_index</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Optional alongside sku_filter</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id50">Output</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="6%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>items</td>
+<td>object</td>
+<td>Object containing item meta data</td>
+</tr>
+<tr class="row-odd"><td>–(sku)</td>
+<td>string</td>
+<td>SKU number</td>
+</tr>
+<tr class="row-even"><td>—-(wear_tier_index)</td>
+<td>string</td>
+<td>Wear tier index</td>
+</tr>
+<tr class="row-odd"><td>——(meta data properties)</td>
+<td>mix</td>
+<td>name, category, rarity, type, color, image, suggested_price, and paint_indexfrom Standard Item Object</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">VERSION 1 BUG WARNING: For SKU = 1 items (Skeleton Key), the wear tier index is missing.  Instead, the key is listed inside of a single-element array.  So to access it, you would: <cite>items.1[0].name</cite>.  This will be fixed in version 2.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-text">Example Output</span><a class="headerlink" href="#id22" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1524850074</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;10006&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Karambit | Poison Target (Factory New)&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Covert Knife&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;rarity&quot;</span><span class="p">:</span> <span class="s2">&quot;Covert&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Knife&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#eb4b4b&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;300px&quot;</span><span class="p">:</span> <span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/karambit-poison-target-factory-new-300.png&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;600px&quot;</span><span class="p">:</span> <span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/karambit-poison-target-factory-new-600.png&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;suggested_price&quot;</span><span class="p">:</span> <span class="mi">71436</span><span class="p">,</span>
+                  <span class="nt">&quot;paint_index&quot;</span><span class="p">:</span> <span class="kc">null</span>
+             <span class="p">}</span>
+          <span class="p">}</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="vgo-wear-tier-index-map">
+<h3><a class="toc-backref" href="#id51">VGO Wear Tier Index Map</a><a class="headerlink" href="#vgo-wear-tier-index-map" title="Permalink to this headline">¶</a></h3>
+<p>These mappings will never change, you may store and use as you please. Items without tiers, e.g. keys, have a wear tier index of <cite>0</cite>.</p>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-text">Example Output</span><a class="headerlink" href="#id23" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;wear_tier_index_map&quot;</span><span class="p">:</span> <span class="p">{</span>
+     <span class="nt">&quot;&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+     <span class="nt">&quot;Factory New&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;Minimal Wear&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+     <span class="nt">&quot;Field-Tested&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+     <span class="nt">&quot;Well-Worn&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+     <span class="nt">&quot;Battle-Scarred&quot;</span><span class="p">:</span> <span class="mi">5</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;wear_tier_index_to_float_map&quot;</span><span class="p">:</span> <span class="p">{</span>
+     <span class="nt">&quot;1&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;min&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mf">0.06999999999999</span>
+     <span class="p">},</span>
+     <span class="nt">&quot;2&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;min&quot;</span><span class="p">:</span> <span class="mf">0.07</span><span class="p">,</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mf">0.14999999999999</span>
+     <span class="p">},</span>
+     <span class="nt">&quot;3&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;min&quot;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mf">0.37999999999999</span>
+     <span class="p">},</span>
+     <span class="nt">&quot;4&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;min&quot;</span><span class="p">:</span> <span class="mf">0.38</span><span class="p">,</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mf">0.44999999999999</span>
+     <span class="p">},</span>
+     <span class="nt">&quot;5&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;min&quot;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">,</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mi">1</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="iitem-getitemdefinitions">
+<h2><a class="toc-backref" href="#id52">IItem/GetItemDefinitions</a><a class="headerlink" href="#iitem-getitemdefinitions" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET or POST https://api-trade.opskins.com/IItem/GetItemDefinitions/v1/</code></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li>All items for an app (limit <code class="docutils literal notranslate"><span class="pre">1000</span></code> per page): <code class="docutils literal notranslate"><span class="pre">GetItemDefinitions/v1?app_id=1</span></code></li>
+<li>Filter by <code class="docutils literal notranslate"><span class="pre">def_id</span></code>: <code class="docutils literal notranslate"><span class="pre">GetItemDefinitions/v1?app_id=1&amp;def_id_filter=900000001,900000002</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">POST is recommended, as you could easily exceed maximum URI size with GET when using sku_filter. If you are receiving HTTP 500 errors when using GET, this is most likely the reason.</p>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id53">Authentication</a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>None required.</p>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id54">Input</a><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="7%" />
+<col width="8%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>app_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Internal App ID (see ITrade/GetApps)</td>
+</tr>
+<tr class="row-odd"><td>def_id_filter</td>
+<td>csv-int</td>
+<td>&#160;</td>
+<td>Optional def_id comma-separated filter</td>
+</tr>
+<tr class="row-even"><td>index_by</td>
+<td>string</td>
+<td>&#160;</td>
+<td>Optionally index the output by market_name, def_id, or sku, send it as literal string</td>
+</tr>
+<tr class="row-odd"><td>page</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Page number in response (starting with 1, defaults to 1)</td>
+</tr>
+<tr class="row-even"><td>per_page</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Number of items per_page in response (no more than 1000 (default))</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id55">Output</a><a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="8%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>definitions</td>
+<td>array-object or object</td>
+<td>An array of objects or object list if index_by option is used</td>
+</tr>
+<tr class="row-odd"><td>–def_id</td>
+<td>int</td>
+<td>Unique Definition ID, this is a unique &amp; unchanging identifier for each item, regardless of app_id. Not to be confused with sku, which is not unique per wear-tierfor VGO items. VGO item def_id starts at 900,000,000 for no particular reason.</td>
+</tr>
+<tr class="row-even"><td>–sku</td>
+<td>int</td>
+<td>SKU for item. Mainly utilized for VGO items, for all other items, this will be the same as def_id.</td>
+</tr>
+<tr class="row-odd"><td>–internal_app_id</td>
+<td>int</td>
+<td>Internal App ID</td>
+</tr>
+<tr class="row-even"><td>–name</td>
+<td>string</td>
+<td>Name, non-unique, most likely the same as market_name however</td>
+</tr>
+<tr class="row-odd"><td>–market_name</td>
+<td>string</td>
+<td>Market name, unique per app_id</td>
+</tr>
+<tr class="row-even"><td>–color</td>
+<td>string</td>
+<td>Color with hex # for VGO (ID 1), for all others, no # 🙁 – usually corresponds to the rarity of the item</td>
+</tr>
+<tr class="row-odd"><td>–image</td>
+<td>string</td>
+<td>Generic image URL</td>
+</tr>
+<tr class="row-even"><td>–suggested_price</td>
+<td>int</td>
+<td>Market suggested price</td>
+</tr>
+<tr class="row-odd"><td>–suggested_price_floor</td>
+<td>int</td>
+<td>The minimum viable suggested price, does not change.</td>
+</tr>
+<tr class="row-even"><td>–attributes</td>
+<td>object</td>
+<td>Generic (non-unique) item attributes, all app-specific properties will be in here</td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-text">Output Example (Array of objects)</span><a class="headerlink" href="#id24" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+     <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="mi">1544467201</span><span class="p">,</span>
+     <span class="nt">&quot;current_page&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;total_pages&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;response&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;definitions&quot;</span><span class="p">:[</span>
+           <span class="p">{</span>
+              <span class="nt">&quot;def_id&quot;</span><span class="p">:</span><span class="mi">900000001</span><span class="p">,</span>
+              <span class="nt">&quot;internal_app_id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;WAX Key&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;market_name&quot;</span><span class="p">:</span><span class="s2">&quot;WAX Key&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;#777777&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-300.png&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;suggested_price&quot;</span><span class="p">:</span><span class="mi">250</span><span class="p">,</span>
+              <span class="nt">&quot;suggested_price_floor&quot;</span><span class="p">:</span><span class="mi">250</span><span class="p">,</span>
+              <span class="nt">&quot;attributes&quot;</span><span class="p">:{</span>
+                 <span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;WAX Key&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_300&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-300.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_600&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-600.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_900&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-900.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_1800&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-1800.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_2500&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-2500.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;paint_index&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+                 <span class="nt">&quot;rarity&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+                 <span class="nt">&quot;suggested_price_floor&quot;</span><span class="p">:</span><span class="mi">250</span><span class="p">,</span>
+                 <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;WAX Key&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;wear_tier_index&quot;</span><span class="p">:</span><span class="mi">0</span>
+              <span class="p">}</span>
+           <span class="p">}</span>
+        <span class="p">]</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-text">Output Example (Indexed by <code class="docutils literal notranslate"><span class="pre">def_id</span></code>)</span><a class="headerlink" href="#id25" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+     <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="mi">1544467222</span><span class="p">,</span>
+     <span class="nt">&quot;current_page&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;total_pages&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;response&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;definitions&quot;</span><span class="p">:{</span>
+           <span class="nt">&quot;900000001&quot;</span><span class="p">:{</span>
+              <span class="nt">&quot;def_id&quot;</span><span class="p">:</span><span class="mi">900000001</span><span class="p">,</span>
+              <span class="nt">&quot;internal_app_id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;WAX Key&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;market_name&quot;</span><span class="p">:</span><span class="s2">&quot;WAX Key&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;#777777&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-300.png&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;suggested_price&quot;</span><span class="p">:</span><span class="mi">250</span><span class="p">,</span>
+              <span class="nt">&quot;suggested_price_floor&quot;</span><span class="p">:</span><span class="mi">250</span><span class="p">,</span>
+              <span class="nt">&quot;attributes&quot;</span><span class="p">:{</span>
+                 <span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;WAX Key&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_300&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-300.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_600&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-600.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_900&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-900.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_1800&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-1800.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_2500&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/wax-key-2500.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;paint_index&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+                 <span class="nt">&quot;rarity&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+                 <span class="nt">&quot;suggested_price_floor&quot;</span><span class="p">:</span><span class="mi">250</span><span class="p">,</span>
+                 <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;WAX Key&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;wear_tier_index&quot;</span><span class="p">:</span><span class="mi">0</span>
+              <span class="p">}</span>
+           <span class="p">},</span>
+           <span class="nt">&quot;900000002&quot;</span><span class="p">:{</span>
+              <span class="nt">&quot;def_id&quot;</span><span class="p">:</span><span class="mi">900000002</span><span class="p">,</span>
+              <span class="nt">&quot;internal_app_id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;AK-47 | Overdrive (Factory New)&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;market_name&quot;</span><span class="p">:</span><span class="s2">&quot;AK-47 | Overdrive (Factory New)&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;#eb4b4b&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/ak-47-overdrive-factory-new-300.png&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;suggested_price&quot;</span><span class="p">:</span><span class="mi">23252</span><span class="p">,</span>
+              <span class="nt">&quot;suggested_price_floor&quot;</span><span class="p">:</span><span class="mi">23252</span><span class="p">,</span>
+              <span class="nt">&quot;attributes&quot;</span><span class="p">:{</span>
+                 <span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;Covert Rifle&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_300&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/ak-47-overdrive-factory-new-300.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_600&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/ak-47-overdrive-factory-new-600.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_900&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/ak-47-overdrive-factory-new-900.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_1800&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/ak-47-overdrive-factory-new-1800.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;image_generic_2500&quot;</span><span class="p">:</span><span class="s2">&quot;https://files.opskins.media/file/vgo-img/item/ak-47-overdrive-factory-new-2500.png&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;paint_index&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+                 <span class="nt">&quot;rarity&quot;</span><span class="p">:</span><span class="s2">&quot;Covert&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;suggested_price_floor&quot;</span><span class="p">:</span><span class="mi">23252</span><span class="p">,</span>
+                 <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Rifle&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;wear_tier_index&quot;</span><span class="p">:</span><span class="mi">1</span>
+              <span class="p">}</span>
+           <span class="p">}</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="iitem-getraritystats">
+<h2><a class="toc-backref" href="#id56">IItem/GetRarityStats</a><a class="headerlink" href="#iitem-getraritystats" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/IItem/GetRarityStats/v1/</code></dt>
+<dd></dd></dl>
+
+<p>Get item rarity stats per Definition ID (SKU) (currently only for VGO)</p>
+<div class="section" id="id14">
+<h3><a class="toc-backref" href="#id57">Authentication</a><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id15">
+<h3><a class="toc-backref" href="#id58">Input</a><a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="12%" />
+<col width="14%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>app_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Internal App ID (see ITrade/GetApps)</td>
+</tr>
+<tr class="row-odd"><td>def_id</td>
+<td>int-csv</td>
+<td>&#160;</td>
+<td>Definition IDs (SKUs) separated by commas</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>If an item was never unboxed (very rare items), no stats will be outputted</li>
+<li>An individual item’s permanent serial number will be inside Standard Item Object as <code class="docutils literal notranslate"><span class="pre">serial_sku_wear</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h3><a class="toc-backref" href="#id59">Output</a><a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="6%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>items</td>
+<td>object</td>
+<td>Object containing rarity data per Definition ID</td>
+</tr>
+<tr class="row-odd"><td>-(def_id)</td>
+<td>string</td>
+<td>Definition ID</td>
+</tr>
+<tr class="row-even"><td>–def_id</td>
+<td>int</td>
+<td>Definition ID</td>
+</tr>
+<tr class="row-odd"><td>–def_sub_id</td>
+<td>int/null</td>
+<td>Sub-Definition ID, for VGO this is the Wear Tier Index (1,2,3,4,5)</td>
+</tr>
+<tr class="row-even"><td>–latest_serial</td>
+<td>int</td>
+<td>The latest Serial Number given for an item of this type (only per Def ID). Not currently displayed on our sites.</td>
+</tr>
+<tr class="row-odd"><td>–sub_items</td>
+<td>object</td>
+<td>Object containing rarity data per Definition ID &amp; Sub Definition ID</td>
+</tr>
+<tr class="row-even"><td>—(def_sub_id)</td>
+<td>string</td>
+<td>Sub-Definition ID</td>
+</tr>
+<tr class="row-odd"><td>—-def_id</td>
+<td>int</td>
+<td>Definition ID</td>
+</tr>
+<tr class="row-even"><td>—–def_sub_id</td>
+<td>int</td>
+<td>Sub-Definition ID</td>
+</tr>
+<tr class="row-odd"><td>—–latest_serial</td>
+<td>int</td>
+<td>The latest serial number given for an item of this type. This is what is displayed as “Total Unboxed” on WAX ExpressTrade &amp; OPSkins Marketplace.</td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="id26">
+<div class="code-block-caption"><span class="caption-text">Output Example</span><a class="headerlink" href="#id26" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+     <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="mi">1536707797</span><span class="p">,</span>
+     <span class="nt">&quot;response&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;items&quot;</span><span class="p">:{</span>
+           <span class="nt">&quot;102&quot;</span><span class="p">:{</span>
+              <span class="nt">&quot;def_id&quot;</span><span class="p">:</span><span class="mi">102</span><span class="p">,</span>
+              <span class="nt">&quot;def_sub_id&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+              <span class="nt">&quot;latest_serial&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+              <span class="nt">&quot;sub_items&quot;</span><span class="p">:{</span>
+                 <span class="nt">&quot;2&quot;</span><span class="p">:{</span>
+                    <span class="nt">&quot;def_id&quot;</span><span class="p">:</span><span class="mi">102</span><span class="p">,</span>
+                    <span class="nt">&quot;def_sub_id&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                    <span class="nt">&quot;latest_serial&quot;</span><span class="p">:</span><span class="mi">1</span>
+                 <span class="p">},</span>
+                 <span class="nt">&quot;5&quot;</span><span class="p">:{</span>
+                    <span class="nt">&quot;def_id&quot;</span><span class="p">:</span><span class="mi">102</span><span class="p">,</span>
+                    <span class="nt">&quot;def_sub_id&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+                    <span class="nt">&quot;latest_serial&quot;</span><span class="p">:</span><span class="mi">1</span>
+                 <span class="p">}</span>
+              <span class="p">}</span>
+           <span class="p">}</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="iitem-instantsellrecentitems">
+<h2><a class="toc-backref" href="#id60">IItem/InstantSellRecentItems</a><a class="headerlink" href="#iitem-instantsellrecentitems" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">POST https://api-trade.opskins.com/IItem/InstantSellRecentItems/v1/</code></dt>
+<dd></dd></dl>
+
+<p>This endpoint can be used to instant-sell recently (15 min) unboxed items on OPSkins. Items are automatically transferred to OPSkins and then sold via the endpoint ISales/InstantSellItems/v1. Note that partial success is possible with this endpoint. It’s also possible that we will send a <code class="docutils literal notranslate"><span class="pre">status</span></code> of <code class="docutils literal notranslate"><span class="pre">1</span></code> but the OPSkins endpoint will fail completely, as shown in the Output Examples below.</p>
+<div class="section" id="id17">
+<h3><a class="toc-backref" href="#id61">Authentication</a><a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id18">
+<h3><a class="toc-backref" href="#id62">OAuth Scopes</a><a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">instant_sell_recent_items</span></code></p>
+<ul class="simple">
+<li>If using OAuth, OPSkins wallet balance information will not be shown unless balance scope is available.</li>
+</ul>
+</div>
+<div class="section" id="allowed-apps">
+<h3><a class="toc-backref" href="#id63">Allowed Apps</a><a class="headerlink" href="#allowed-apps" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>All apps &amp; items allowed. Note that the OPSkins endpoint may still reject some apps &amp; items.</li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h3><a class="toc-backref" href="#id64">Input</a><a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="10%" />
+<col width="11%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>item_id</td>
+<td>int-csv</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>List of Item IDs, separated with commas. Maximum 100.</td>
+</tr>
+<tr class="row-odd"><td>instant_sell_type</td>
+<td>int</td>
+<td>&#160;</td>
+<td>1 for OPSkins Credits, 2 for USD (default)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id20">
+<h3><a class="toc-backref" href="#id65">Output</a><a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="7%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>valid_item_ids</td>
+<td>array-int</td>
+<td>Item IDs considered valid</td>
+</tr>
+<tr class="row-odd"><td>unknown_item_ids</td>
+<td>array-int</td>
+<td>Item IDs that were not found in the database or do not belong to you</td>
+</tr>
+<tr class="row-even"><td>not_recent_item_ids</td>
+<td>array-int</td>
+<td>Item IDs created more than 15 minutes ago, which are not eligible</td>
+</tr>
+<tr class="row-odd"><td>ineligible_item_ids</td>
+<td>array-int</td>
+<td>Item IDs that are currently not eligible for trade or transfer</td>
+</tr>
+<tr class="row-even"><td>not_allowed_item_ids</td>
+<td>array-int</td>
+<td>Deprecated (all apps &amp; items allowed). Item IDs that are not allowed for this endpoint. See Allowed Apps above.</td>
+</tr>
+<tr class="row-odd"><td>isales_instantsellitems_v1</td>
+<td>mixed</td>
+<td>Full ISales/InstantSellItems/v1 response from OPSkins API</td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="id27">
+<div class="code-block-caption"><span class="caption-text">Output Example (partial success)</span><a class="headerlink" href="#id27" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+     <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="mi">1542928287</span><span class="p">,</span>
+     <span class="nt">&quot;response&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;valid_item_ids&quot;</span><span class="p">:[</span>
+           <span class="mi">391</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;unknown_item_ids&quot;</span><span class="p">:[</span>
+           <span class="mi">291</span><span class="p">,</span>
+           <span class="mi">292</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;not_recent_item_ids&quot;</span><span class="p">:[</span>
+
+        <span class="p">],</span>
+        <span class="nt">&quot;ineligible_item_ids&quot;</span><span class="p">:[</span>
+
+        <span class="p">],</span>
+        <span class="nt">&quot;not_allowed_item_ids&quot;</span><span class="p">:[</span>
+
+        <span class="p">],</span>
+        <span class="nt">&quot;isales_instantsellitems_v1&quot;</span><span class="p">:{</span>
+           <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+           <span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="mi">1542928287</span><span class="p">,</span>
+           <span class="nt">&quot;balance&quot;</span><span class="p">:</span><span class="mi">500027520</span><span class="p">,</span>
+           <span class="nt">&quot;credits&quot;</span><span class="p">:</span><span class="mi">245</span><span class="p">,</span>
+           <span class="nt">&quot;cryptoBalances&quot;</span><span class="p">:{</span>
+              <span class="nt">&quot;ETH&quot;</span><span class="p">:</span><span class="s2">&quot;0.000000000000000000&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;WAX&quot;</span><span class="p">:</span><span class="s2">&quot;0.000000000000000000&quot;</span>
+           <span class="p">},</span>
+           <span class="nt">&quot;response&quot;</span><span class="p">:{</span>
+              <span class="nt">&quot;items&quot;</span><span class="p">:[</span>
+                 <span class="p">{</span>
+                    <span class="nt">&quot;saleid&quot;</span><span class="p">:</span><span class="mi">309421537</span><span class="p">,</span>
+                    <span class="nt">&quot;new_itemid&quot;</span><span class="p">:</span><span class="mi">309421538</span><span class="p">,</span>
+                    <span class="nt">&quot;item_id&quot;</span><span class="p">:</span><span class="mi">391</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Huntsman Knife | Cyber Sport (Battle-Scarred)&quot;</span>
+                 <span class="p">}</span>
+              <span class="p">],</span>
+              <span class="nt">&quot;items_count&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+              <span class="nt">&quot;total_value&quot;</span><span class="p">:{</span>
+                 <span class="nt">&quot;usd&quot;</span><span class="p">:</span><span class="mi">6601</span><span class="p">,</span>
+                 <span class="nt">&quot;credits&quot;</span><span class="p">:</span><span class="mi">0</span>
+              <span class="p">}</span>
+           <span class="p">}</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id28">
+<div class="code-block-caption"><span class="caption-text">Output Example (None of the provided items exist or belong to you)</span><a class="headerlink" href="#id28" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+     <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">312</span><span class="p">,</span>
+     <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1542910778</span><span class="p">,</span>
+     <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;None of the items provided exist or belong to you: 159, 160&quot;</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id29">
+<div class="code-block-caption"><span class="caption-text">Output Example (None of the items provided are valid/eligible)</span><a class="headerlink" href="#id29" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+     <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">312</span><span class="p">,</span>
+     <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1542910641</span><span class="p">,</span>
+     <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;None of the items provided are valid/eligible&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;valid_item_ids&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="nt">&quot;unknown_item_ids&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="mi">159</span><span class="p">,</span>
+              <span class="mi">160</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;not_recent_item_ids&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="mi">180</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;ineligible_item_ids&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="nt">&quot;not_allowed_item_ids&quot;</span><span class="p">:</span> <span class="p">[]</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id30">
+<div class="code-block-caption"><span class="caption-text">Output Example (OPSkins API Error)</span><a class="headerlink" href="#id30" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+     <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+     <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1542852394</span><span class="p">,</span>
+     <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;isales_instantsellitems_v1&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+              <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1542852394</span><span class="p">,</span>
+              <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Something went wrong.&quot;</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id31">
+<div class="code-block-caption"><span class="caption-text">Output Example (Error while transferring items to OPSkins)</span><a class="headerlink" href="#id31" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+     <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">202</span><span class="p">,</span>
+     <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1542864143</span><span class="p">,</span>
+     <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Error during transfer of items to OPSkins. It&#39;s possible the items were transferred successfully.&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;valid_item_ids&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="mi">174</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;unknown_item_ids&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="mi">159</span><span class="p">,</span>
+              <span class="mi">160</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;not_recent_item_ids&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="nt">&quot;ineligible_item_ids&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="nt">&quot;not_allowed_item_ids&quot;</span><span class="p">:</span> <span class="p">[]</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="itrade.html" class="btn btn-neutral float-right" title="ITrade" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="iethereum.html" class="btn btn-neutral" title="IEthereum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, WAX ExpressTrade
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

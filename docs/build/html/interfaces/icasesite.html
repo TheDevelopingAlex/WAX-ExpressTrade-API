@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ICaseSite &mdash; WAX ExpressTrade 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IEthereum" href="iethereum.html" />
+    <link rel="prev" title="ICase" href="icase.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../initial_testing.html">Initial Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backend.html">Backend (Server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontend.html">Frontend (Website)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Quick Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="icase.html">ICase</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ICaseSite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#icasesite-getkeycount">ICaseSite/GetKeyCount</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#icasesite-gettradestatus">ICaseSite/GetTradeStatus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#icasesite-sendkeyrequest">ICaseSite/SendKeyRequest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#icasesite-updatecommissionsettings">ICaseSite/UpdateCommissionSettings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iethereum.html">IEthereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iitem.html">IItem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="itrade.html">ITrade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iuser.html">IUser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional.html">Additional Information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WAX ExpressTrade</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ICaseSite</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/interfaces/icasesite.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="icasesite">
+<span id="sec-icasesite"></span><h1><a class="toc-backref" href="#id11">ICaseSite</a><a class="headerlink" href="#icasesite" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Only accounts created with IUser/CreateVCaseUser can access this endpoint.</p>
+</div>
+<p>Endpoints for case websites.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#icasesite" id="id11">ICaseSite</a><ul>
+<li><a class="reference internal" href="#icasesite-getkeycount" id="id12">ICaseSite/GetKeyCount</a><ul>
+<li><a class="reference internal" href="#authentication" id="id13">Authentication</a></li>
+<li><a class="reference internal" href="#input" id="id14">Input</a></li>
+<li><a class="reference internal" href="#output" id="id15">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#icasesite-gettradestatus" id="id16">ICaseSite/GetTradeStatus</a><ul>
+<li><a class="reference internal" href="#id1" id="id17">Authentication</a></li>
+<li><a class="reference internal" href="#id2" id="id18">Input</a></li>
+<li><a class="reference internal" href="#id3" id="id19">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#icasesite-sendkeyrequest" id="id20">ICaseSite/SendKeyRequest</a><ul>
+<li><a class="reference internal" href="#id4" id="id21">Authentication</a></li>
+<li><a class="reference internal" href="#id5" id="id22">Input</a></li>
+<li><a class="reference internal" href="#id6" id="id23">Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#icasesite-updatecommissionsettings" id="id24">ICaseSite/UpdateCommissionSettings</a><ul>
+<li><a class="reference internal" href="#id7" id="id25">Authentication</a></li>
+<li><a class="reference internal" href="#id8" id="id26">Input</a></li>
+<li><a class="reference internal" href="#id9" id="id27">Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="icasesite-getkeycount">
+<h2><a class="toc-backref" href="#id12">ICaseSite/GetKeyCount</a><a class="headerlink" href="#icasesite-getkeycount" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/ICaseSite/GetKeyCount/v1</code></dt>
+<dd></dd></dl>
+
+<p>Returns the number of keys a specific user has on ExpressTrade</p>
+<div class="section" id="authentication">
+<h3><a class="toc-backref" href="#id13">Authentication</a><a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="input">
+<h3><a class="toc-backref" href="#id14">Input</a><a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="9%" />
+<col width="12%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>trade_url or steam_id</td>
+<td>string</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>The trade URL or the Steam ID64 of the user</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="output">
+<h3><a class="toc-backref" href="#id15">Output</a><a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="11%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>key_count</td>
+<td>string</td>
+<td>Number of keys this user owns. Parsable into an int.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="icasesite-gettradestatus">
+<h2><a class="toc-backref" href="#id16">ICaseSite/GetTradeStatus</a><a class="headerlink" href="#icasesite-gettradestatus" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">GET https://api-trade.opskins.com/ICaseSite/GetTradeStatus/v1</code></dt>
+<dd></dd></dl>
+
+<p>Returns the Trade Status and Opened Case results from an offer created by a case website.</p>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id17">Authentication</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id18">Input</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="7%" />
+<col width="11%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offer_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>The trade offer ID that was created by the requesting user.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id19">Output</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="17%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offer</td>
+<td>object</td>
+<td>Standard Trade Offer Object</td>
+</tr>
+<tr class="row-odd"><td>cases</td>
+<td>object</td>
+<td>Standard OpenedCase Object</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="icasesite-sendkeyrequest">
+<h2><a class="toc-backref" href="#id20">ICaseSite/SendKeyRequest</a><a class="headerlink" href="#icasesite-sendkeyrequest" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">POST https://api-trade.opskins.com/ICaseSite/SendKeyRequest/v1</code></dt>
+<dd></dd></dl>
+
+<p>Sends a trade offer to the user requesting some number of keys for uncasing items on a case website.</p>
+<p><strong>Ensure that</strong> <code class="docutils literal notranslate"><span class="pre">remaining_opens</span></code> <strong>for the case id is greater than 0 via</strong> <code class="docutils literal notranslate"><span class="pre">ICase/GetCaseSchema</span></code> <strong>, or you will get an HTTP 400 error with the code 314 (TOO_MANY_REDEMPTIONS).</strong></p>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id21">Authentication</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">OPSkins User ID can be found on the WAX ExpressTrade <a class="reference external" href="https://trade.opskins.com/settings/">settings</a> page.</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id22">Input</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="1%" />
+<col width="1%" />
+<col width="94%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>trade_url or steam_id</td>
+<td>string</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>The trade URL or the Steam ID64 of the user</td>
+</tr>
+<tr class="row-odd"><td>case_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>The Case ID user wants to open</td>
+</tr>
+<tr class="row-even"><td>amount</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Number of these cases that should be opened. Defaults to 1.</td>
+</tr>
+<tr class="row-odd"><td>expiration_time</td>
+<td>int</td>
+<td>&#160;</td>
+<td>Custom expiration time for the trade offer in seconds. Minimum 120 seconds (2 minutes). Defaults to 14 days.</td>
+</tr>
+<tr class="row-even"><td>message</td>
+<td>string</td>
+<td>&#160;</td>
+<td>Trade offer message that will be displayed to the recipient</td>
+</tr>
+<tr class="row-odd"><td>referral_uid</td>
+<td>int</td>
+<td>&#160;</td>
+<td>(Optional) You can choose to send this if someone has referred someone else to your site. This should be an OPSkins UID (of the referrer). If this is set, when commission for the cases in this offer is distributed, commission will be split between your site, the referrer, and the case-opening user (rebate, if set below). You may set a custom split rate under ICaseSite/UpdateCommissionSettings with referral_commission_rate. If this is the same as network_user_id in ICaseSite/UpdateCommissionSettings, the referral commission will be merged into the site’s commission.</td>
+</tr>
+<tr class="row-even"><td>rebate_commission_rate</td>
+<td>float</td>
+<td>&#160;</td>
+<td>(Optional) You can choose to share commission with the case-opening User. Default <code class="docutils literal notranslate"><span class="pre">0.00%</span></code>, Max <code class="docutils literal notranslate"><span class="pre">10.00%</span></code>, &amp; Min <code class="docutils literal notranslate"><span class="pre">0.01%</span></code>. If this is set, when commission for the cases in this offer is distributed, commission will be split between your site, the User, and referrer (only if set). This works similarly to <code class="docutils literal notranslate"><span class="pre">referral_commission_rate</span></code> in ICaseSite/UpdateCommissionSettings. If the case opening UID is the same as <code class="docutils literal notranslate"><span class="pre">referral_uid</span></code> above, referral commission will be merged into the rebate commission, or if it is the same as <code class="docutils literal notranslate"><span class="pre">network_user_id</span></code> in ICaseSite/UpdateCommissionSettings, the rebate will be merged into the site’s commission.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id23">Output</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="6%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>offer</td>
+<td>object</td>
+<td>Standard Trade Offer Object</td>
+</tr>
+<tr class="row-odd"><td>offer_url</td>
+<td>string</td>
+<td>Full URL to the trade offer. The recipient of this offer can click this link to view the offer and accept it.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="icasesite-updatecommissionsettings">
+<h2><a class="toc-backref" href="#id24">ICaseSite/UpdateCommissionSettings</a><a class="headerlink" href="#icasesite-updatecommissionsettings" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt>
+<code class="descname">POST https://api-trade.opskins.com/ICaseSite/UpdateCommissionSettings/v1</code></dt>
+<dd></dd></dl>
+
+<p>Update commission settings for your VCaseUser. Link your OPSkins account to receive commission directly into your USD Wallet.</p>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id25">Authentication</a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>API key required.</p>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id26">Input</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="7%" />
+<col width="10%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>network_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>The ID of the network. 1 for OPSkins.com</td>
+</tr>
+<tr class="row-odd"><td>network_user_id</td>
+<td>int</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>User ID on the network. For OPSkins, your OPSkins User ID.</td>
+</tr>
+<tr class="row-even"><td>referral_commission_rate</td>
+<td>float</td>
+<td>&#160;</td>
+<td>(Below)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<div class="last line-block">
+<div class="line">This is OPTIONAL!</div>
+<div class="line"><br /></div>
+<div class="line">Want all the commission? Don’t worry about this.</div>
+<div class="line">This only matters if you send <code class="docutils literal notranslate"><span class="pre">referral_uid</span></code> with <code class="docutils literal notranslate"><span class="pre">ICaseSite/SendKeyRequest</span></code>.</div>
+<div class="line"><br /></div>
+<div class="line">Want to share commission with referrering users?</div>
+<div class="line">This property is how many percent commission referrers should receive from total commission percentage (currently 10.00%). Default 5.00%, Max 10.00%, &amp; Min 0.01%.</div>
+<div class="line">The ‘referrer’ is <code class="docutils literal notranslate"><span class="pre">referral_uid</span></code> (OPSkins UID), which can be sent when sending <code class="docutils literal notranslate"><span class="pre">ICaseSite/SendKeyRequest</span></code>. You have to get this from the user (they have to provide to you) and then you can send it.</div>
+<div class="line"><br /></div>
+<div class="line">For example, if this is set to 5.00 %, you will get $0.13 and the referrer $0.12, as the total commission amount (for each case) is 10% of a Skeleton Key, which is $0.25. So by default (5.00%), the referrer will get half the commission $0.12.</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can find your OPSkins User ID on the WAX ExpressTrade <a class="reference external" href="https://trade.opskins.com/settings/">settings</a> page.</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id27">Output</a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="8%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>network_id</td>
+<td>int</td>
+<td>Returns database value (should be same as input).</td>
+</tr>
+<tr class="row-odd"><td>network_user_id</td>
+<td>int</td>
+<td>Returns database value (should be same as input).</td>
+</tr>
+<tr class="row-even"><td>referral_commission_rate</td>
+<td>float</td>
+<td>Returns database value (should be same as input).</td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Output Example</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1531449864</span><span class="p">,</span>
+    <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;network_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;network_user_id&quot;</span><span class="p">:</span> <span class="mi">1234567891</span><span class="p">,</span>
+        <span class="nt">&quot;referral_commission_rate&quot;</span><span class="p">:</span> <span class="mf">2.5</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="iethereum.html" class="btn btn-neutral float-right" title="IEthereum" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="icase.html" class="btn btn-neutral" title="ICase" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, WAX ExpressTrade
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

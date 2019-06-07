@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setup &mdash; WAX ExpressTrade 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Backend (Server)" href="backend.html" />
+    <link rel="prev" title="Initial Testing" href="initial_testing.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial_testing.html">Initial Testing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#backend-server">Backend (Server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frontend-website">Frontend (Website)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="backend.html">Backend (Server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frontend.html">Frontend (Website)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/overview.html">Quick Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/icase.html">ICase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/icasesite.html">ICaseSite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iethereum.html">IEthereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iitem.html">IItem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/itrade.html">ITrade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iuser.html">IUser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/additional.html">Additional Information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WAX ExpressTrade</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/setup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<p>We want to split up the implementation into 2 main parts</p>
+<div class="section" id="backend-server">
+<h2>Backend (Server)<a class="headerlink" href="#backend-server" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">So the server (also called backend) should handle all our requests made to the WAX ExpressTrade API.</div>
+<div class="line">You may wonder why we should do that because we could make our requests through the frontend (Website) as well. There are a couple of reasons starting with</div>
+</div>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>You need some kind of server to host your website</dt>
+<dd><ul class="first last simple">
+<li>If you have a more static site, a simple <a class="reference external" href="https://httpd.apache.org/">Apache</a> or <a class="reference external" href="https://www.nginx.com/">NGINX</a> server will probably do it</li>
+<li>But this tutorial focuses more on developing a web app and less on a static website</li>
+<li>Creating your own simple HTTP server will give you more flexibility</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>The VGO API Key</dt>
+<dd><ul class="first last">
+<li><div class="first line-block">
+<div class="line">As mentioned in the previous section we need the VGO API Key for most of our requests. So if you want to make a request, for example to initiate a case opening, you would need the API Key of course.</div>
+<div class="line"><strong>Keep in mind that you do not want to share you API Key with others, because it is linked to your website and website name.</strong></div>
+<div class="line">If you make your requests through the frontend (website) you have to save your API Key to the HTTP request which means it is public and everybody can abuse it.</div>
+<div class="line">You need to make sure your server works as a middleware between the WAX ExpressTrade API and your frontend (website).</div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="frontend-website">
+<h2>Frontend (Website)<a class="headerlink" href="#frontend-website" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">So the frontend (website) will be completely up to you. How you design it, how your animations will work, how you will implement the requests.</div>
+<div class="line">Here are some recommendations you could use to make an advanced, progressive web app</div>
+</div>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>The most known and common framework <a class="reference external" href="https://reactjs.org/">React</a></dt>
+<dd><ul class="first last">
+<li>easy to start and learn</li>
+<li>lot’s of free tutorials on YouTube (Check out <a class="reference external" href="https://www.youtube.com/user/TechGuyWeb">Traversy Media</a> for excellent and detailed tutorials)</li>
+<li>Direct links to the tutorial <a class="reference external" href="https://www.youtube.com/watch?v=A71aqufiNtQ">React JS Crash Course</a> and a playlist about <a class="reference external" href="https://www.youtube.com/watch?v=vYldnghykaU&amp;list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO">Learning React</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Another great frontend framework <a class="reference external" href="https://angular.io/">Angular</a></dt>
+<dd><ul class="first last">
+<li>Nearly same features as <a class="reference external" href="https://reactjs.org/">React</a> but everything in TypeScript instead of JavaScript</li>
+<li>Video <a class="reference external" href="https://www.youtube.com/watch?v=KhzGSHNhnbI">Angular In 60 Minutes</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><a class="reference external" href="https://vuejs.org/">Vue.js</a></li>
+<li>Very simple and old school with plain JavaScript and <a class="reference external" href="https://jquery.com/">jQuery</a> (not recommended for progressive web apps)</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="backend.html" class="btn btn-neutral float-right" title="Backend (Server)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="initial_testing.html" class="btn btn-neutral" title="Initial Testing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, WAX ExpressTrade
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

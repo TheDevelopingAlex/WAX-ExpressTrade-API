@@ -1,0 +1,517 @@
+*******************
+Frontend (Website)
+*******************
+
+.. Hint:: The video for this parts can be found `here <https://www.youtube.com/watch?v=b_uvwU7vBOw>`__
+
+| This specific section is all about on how to use your "middleware API" for your purpose. If you already know how to build a website and make request, handle your data or errors you can skip this section and head over to the **Advanced Documentation** to see the WAX ExpressTrade API documentation.
+|
+| In this section I want to show you how you can implement your "middleware API" into an Angular web app.
+
+.. Caution:: **DISCLAIMER** This section is just a basic tutorial on how to get started with implementing the API on a website. If you know how to do it on your own just skip this!
+
+.. Hint:: All the code written below is also available on `GitHub <https://github.com/TheDevelopingAlex/WAX-ExpressTrade-API/tree/master/example/frontend>`__.
+
+Angular
+========
+
+Angular definitely more complex than other frontend frameworks, this is why I want to give you a quick overview.
+
+Requirements
+-------------
+
+1. We will need `Node.js <https://nodejs.org/en/>`__.
+    - Installation guide for `Windows <http://blog.teamtreehouse.com/install-node-js-npm-windows>`__
+    - Installation guide for `Linux (all versions) <https://nodejs.org/en/download/package-manager/>`__
+
+2. A more advanced text editor than Notepad in Windows to write our code. Recommended free text editors:
+    - `Atom <https://atom.io/>`__
+    - `Visual Studio Code <https://code.visualstudio.com/>`__ (only for Windows)
+    - `Sublime Text <https://www.sublimetext.com/>`__
+
+3. (Optional and only for Windows users) A different console
+    - I personally do not like the command prompt in Windows
+    - My favorite console so far is the `GIT Console <https://git-scm.com/>`__ (You will see why later on)
+
+4. The Angular CLI
+    - You can simply download Angular CLI by typing ``npm install -g @angular/cli`` into your console
+    - We need that to create and build our Angular application
+
+
+Once you installed `Node.js <https://nodejs.org/en/>`__ and chose your text editor we can start coding. I will use the following setup for this tutorial
+
+- Node version 8.11.4 (you can check it by simply opening a console and by typing in ``node --version``)
+- Atom (1.30.0) as my text editor with the `File Icons Package <https://atom.io/packages/file-icons>`__  (just for cosmetic)
+- Because I am on Windows 10, I am going to use the GIT console
+
+
+Step 1
+=======
+
+Creating an setting up our application.
+
+1. To create a new application type ``ng new PROJECT-NAME`` in a newly opened console (watch out for the path in the console)
+    - You can choose any project name you like, as long as it matches the criteria
+2. ``cd`` into your newly created project folder with ``cd PROJECT-NAME``
+3. Start your Angular application with ``ng serve``
+4. Open up your browser and type in ``127.0.0.1:4200`` or ``localhost:4200``
+5. You will be greeted with the default starter template
+
+.. image:: _img/angular_starter.PNG
+
+.. Caution:: Make sure your API server is still up and running
+
+Step 2
+=======
+
+| Time to add components, services and directories we need for our project.
+| If you have never worked with Angular, I recommend reading `this article <https://angular.io/guide/architecture>`__ before you start coding your application.
+
+1. Cancel the ``ng serve`` with CTRL+C
+2. Change directory by typing ``cd src/app/``
+3. Create a new folder named **components** ``mkdir components``
+4. Change directory once again into the newly created directory ``cd components/``
+5. Create your components with ``ng g component COMPONENT-NAME``
+    - For this tutorial we will create a component named **navbar** and **main**
+
+Now repeat these steps with services
+
+1. We have to change directory to ``src/app/`` again because now we are in ``src/app/componets``. Simply type ``cd ..``
+2. Create a new folder named **services** ``mkdir services`` and ``cd`` into it
+3. Create your services by typing ``ng g service SERVICE-NAME``
+    - For this tutorial we will create a service named ``api``
+
+
+| That's it for creating directories, components and files (You could generate all these things in the ``src/app/`` directory but it will become very messy.)
+|
+| You can now serve your application once again with ``ng serve``
+
+
+Step 3
+=======
+
+Open up your text editor and add your Angular application folder as a project folder.
+
+1. Search for the file ``app.module.ts`` in ``src/app/``.
+2. Your components should already be added to this file (If not, just look at the code given below). Your code should look something like this
+
+
+.. code-block:: typescript
+
+  import { BrowserModule } from '@angular/platform-browser';
+  import { NgModule } from '@angular/core';
+
+  import { AppComponent } from './app.component';
+  import { NavbarComponent } from './components/navbar/navbar.component';
+  import { MainComponent } from './components/main/main.component';
+
+  @NgModule({
+    declarations: [
+      AppComponent,
+      NavbarComponent,
+      MainComponent
+    ],
+    imports: [
+      BrowserModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+  })
+  export class AppModule { }
+
+3. Add your "API Service" by typing ``import { ApiService } from './services/api.service';`` and add the ``ApiService Class`` to the providers.
+
+.. code-block:: typescript
+
+  import { ApiService } from './services/api.service';
+
+  providers: [ApiService],
+
+4. Next we have to add the **HttpClientModule** to our ``app.module.ts`` file to make HTTP requests to the server.
+    - Simply import it at the top by typing ``import { HttpClientModule } from '@angular/common/http';``
+    - And add the ``HttpClientModule`` to the imports at the bottom
+
+5. (optional) The last thing we are going to add is `Bootstrap <https://getbootstrap.com/>`__ to have some kind of nice design and a better UI
+    - Head over to https://getbootstrap.com/ and download the latest version (currently 4.1.3)
+    - Go for the **Compiled CSS and JS** Bootstrap version
+    - Go to https://jquery.com/download/ and download the latest version of jQuery (go for the "compresed" one)
+        - You are better off if you hover of the "Download the compressed, production jQuery 3.3.1" link and right-click on it to "Save link as"
+        - Save it to the Desktop for now
+    - Head to your Angular project folder and search for the ``src/assets/`` directory via your explorer
+    - Unzip the Bootstrap archive and copy the ``css`` and ``js`` folder into the ``src/assets`` directory
+    - Copy the jQuery.js file you saved on the Desktop into the ``src/assets/js`` folder
+    - Open up your text editor and search for the ``angular.json`` file in the project folder
+    - Search for line 25, you should see an entry called ``styles``. Copy this path above the ``"src/styles.css"`` one ``"src/assets/css/bootstrap.min.css"``
+    - Underneath the ``style`` entry there also should be ``scripts``
+      - Add the two following lines
+      - ``"src/assets/js/jquery-3.3.1.min.js"``
+      - ``"src/assets/js/bootstrap.min.js"``
+      - Don't mess up the order of this two line and don't forget a comma after the jquery entry
+
+It should look like this afterwards
+
+.. code-block:: json
+
+  {
+    "styles": [
+      "src/assets/css/bootstrap.min.css",
+      "src/styles.css"
+    ],
+    "scripts": [
+      "src/assets/js/jquery-3.3.1.min.js",
+      "src/assets/js/bootstrap.min.js"
+    ]
+  }
+
+| The last step is to restart your Angular application by canceling the serve with CTRL+C and ``ng serve``.
+| That was it, we can now start coding our application.
+
+Step 4
+=======
+
+This section is about using our two created components and how to add some content on the page.
+
+Implementing our components
+----------------------------
+
+Change the code in the ``app.component.html`` file to this
+
+.. code-block:: html
+
+  <app-navbar></app-navbar>
+  <app-main></app-main>
+
+Explanation
+____________
+
+| With this two tags (which are Angular specific) we include our two created components ``navbar`` and ``main``. The name ``app-navbar`` and ``app-main`` is specified by the component.
+| You can head over to your browser and check what has changed. You should see "navbar works" and "main works". If not, open up the browser developer console and check for any errors.
+
+Adding content to the navbar and main component
+------------------------------------------------
+
+1. Head over to the navbar component and search for the ``navbar.component.html`` file.
+2. Copy the following template into the HTML file
+
+.. code-block:: html
+  :caption: Default navbar template found on https://getbootstrap.com/docs/4.1/components/navbar/
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 1em;">
+    <div class="container">
+
+      <a class="navbar-brand" href="#">WAX Tutorial</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://trade.opskins.com/" target="_blank">Trade</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+| I have changed the navbar a little bit so we can work with it even better.
+|
+| Now let's change the main component
+
+1. Search for the main component directory to edit the ``main.component.html`` file.
+2. Add the following code
+
+.. code-block:: html
+  :caption: Default card component
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+Now save everything and head over to your browser to see the changes.
+
+.. image:: _img/initial_design.PNG
+
+
+Step 5
+=======
+
+| Time to request data from the server and show it on our website.
+
+Focusing on the API service
+----------------------------
+
+1. Open up the **api.service.ts** file
+2. Copy in the following code, and check the "Explanation" below to understand what is going on.
+
+.. code-block:: typescript
+
+  import { Injectable } from '@angular/core';
+
+  import { HttpClient } from '@angular/common/http';
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class ApiService {
+
+    constructor(private _http: HttpClient) { }
+
+    getCaseSchema() {
+      return this._http.get<CaseSchema>("http://127.0.0.1:3000/caseschema");
+    }
+
+  }
+
+  interface CaseSchema {
+    status: any,
+    time: any,
+    response: any
+  }
+
+
+Explanation
+____________
+
+1. Once again we need the ``HttpClient`` to access HTTP requests
+2. To use it, we need to define it in the constructor as well
+3. We created a function that requests the "CaseSchema" from our API
+4. This function can now be called from everywhere
+
+Implementing The Service
+-------------------------
+
+So the next thing is to use our service function on the main component.
+
+1. Open up the ``main.component.ts`` file (This file contains all the logic behind your static website)
+2. Copy the code below and paste it into the file
+3. Head to the explanation section to understand the code
+
+.. code-block:: typescript
+
+  import { Component, OnInit } from '@angular/core';
+
+  import { ApiService } from '../../services/api.service'
+
+  @Component({
+    selector: 'app-main',
+    templateUrl: './main.component.html',
+    styleUrls: ['./main.component.css']
+  })
+  export class MainComponent implements OnInit {
+
+    constructor(private _api: ApiService) {
+      this._api.getCaseSchema()
+        .subscribe(data => {
+          console.log(data);
+        }, error => {
+          console.error(error);
+        });
+    }
+
+    ngOnInit() { }
+
+  }
+
+Explanation
+______________
+
+1. So first of all we have to include our API service file into this one to use our function
+2. Once again we create an instance of the class as seen in the ``constructor()``
+3. We call the function in the constructor so once the website is loading we are requesting the data immediately
+4. How does the function even work?
+    - ``this._api.getCaseSchema()`` this is just the way to call the function
+    - ``.subscribe()`` Angular works with Observables which means you can only subscribe or unsubscribe to them (More about Observables can be found `here <http://reactivex.io/documentation/observable.html>`__)
+    - Inside the ``subscribe()`` Method we can access two variables. One that contains our data called ``data`` in this case (You can call it whatever you want) and another one that contains any ``errors`` called error here (Again you can call it whatever you want)
+    - It is recommended to use a better way of handling errors than simply log them to the console.
+5. For now we are just printing the data to the browser developer console.
+
+So let's head over to the browser and open up the console (Shortcut: F12)
+
+
+Error
+______
+
+| So you probably see an error saying ``No 'Access-Control-Allow-Origin' header is present on the requested resource.``. This is more or less our "mistake" but actually this is a safety feature provided by your browser (I won't go any deeper on that topic).
+|
+| We can fix this by creating a proxy for this request.
+
+1. Create a file named ``proxy.conf.json`` in the root folder of your Angular project folder
+2. Copy and paste the following code
+
+.. code-block:: json
+
+  {
+    "/caseschema": {
+      "target": "http://localhost:3000",
+      "secure": false,
+      "logLevel": "debug"
+    }
+  }
+
+3. Edit the ``angular.json`` file.
+    - Head to line ~54 (this may differ, but just look for the entry ``"serve"``)
+    - Copy ``"proxyConfig": "proxy.conf.json"`` into the options so it looks like this
+
+
+.. code-block:: json
+
+    {
+      "serve": {
+        "builder": "@angular-devkit/build-angular:dev-server",
+        "options": {
+          "browserTarget": "frontend:build",
+          "proxyConfig": "proxy.conf.json"
+        },
+        "configurations": {
+          "production": {
+            "browserTarget": "frontend:build:production"
+          }
+        }
+      }
+    }
+
+4. Restart the Angular serve instance by opening up the console, pressing CTRL+C and entering ``ng serve`` once again.
+5. Adjust the URL in the ``api.service.ts`` file from ``http://127.0.0.1:3000/caseschema`` to just ``/caseschema``
+
+Now head to your browsers (maybe you have to refresh the website) and take a look in the console. You now should see the data from the WAX ExpressTrade API.
+
+
+Step 6
+=======
+
+| Showing the data on the website.
+|
+| For now we are only logging the data in the console but we actually want to show off the requested data. For that we have to adjust our code just a little bit.
+
+1. Changes in the ``main.component.ts`` file
+    - Create a variable above the ``constructor()`` like this ``cases: any = [];``
+    - Change the line ``console.log(data)`` to ``this.cases = data.response.cases;``
+2. Changes in the ``main.component.html`` file
+
+.. code-block:: html
+
+  <div class="container">
+    <div class="row">
+      <div class="col" *ngFor="let case of cases">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{ case.image['300px'] }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ case.name }}</h5>
+            <p class="card-text">SKUS: <br> {{ case.skus}} </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+Explanation
+------------
+
+1. Changes to the ``main.component.ts`` file
+    - We created the variable so we can access it later on in the HTML file.
+    - The only important thing is that the variable has to be an Array, so we can loop through it later on.
+    - Because we do not need the data to be logged in the console we just replaced it.
+    - Lastly we save the ``data.response.cases`` data to our created variable called ``cases``
+
+2. Changes made to the ``main.component.html`` file
+    - The most important line probably is line three
+    - As you can see we use the built in template syntax ``*ngFor``. This is just a loop that creates as many objects as items stored in the array. In this case we have four array entries, so this loop creates four new object for us.
+    - This is a very convenient and easy way to create this objects. Especially because we can access each variable of the array individually. This means we simply use another template syntax to access data like "image", "name" or "skus"
+    - To sum things up, this probably is the easiest and most convenient way to create an object for each, in this case, case.
+
+That's it, you can check the result in your browser. It should look like this
+
+.. image:: _img/design2.PNG
+
+
+Additional Examples
+====================
+
+| If you are still reading this, I got more of some nice and easy examples on how to use the API.
+|
+| This additional example will be about opening a specific case and handling the error if one occurs.
+
+Example 1
+----------
+
+This piece of code will allow a user to initiate a case opening.
+
+.. code-block:: typescript
+  :caption: ``api.service.ts``
+
+  openCase(trade_url, caseId, amount) {
+    return this._http.post<CaseSchema>('/opencase', { trade_url: trade_url, caseId: caseId, amount: amount });
+  }
+
+
+
+
+.. code-block:: typescript
+  :caption: ``main.component.ts``
+
+  openCase(caseId, amount) {
+
+    // Usually you want to access the trade url via the request on your server
+    let trade_url = "VALID TRADE URL";
+
+    if (!caseId || !amount)
+      return alert("CaseId or amount not valid!");
+
+    if (amount <= 0)
+      return alert("You need to open at least 1 case!");
+
+
+    this._api.openCase(trade_url, caseId, amount)
+      .subscribe(data => {
+        // this should be changed to some kind of alert as well, but I am unable to test this properly because of insufficient keys
+        console.log(data.response);
+      }, error => {
+        // simple browser alert with the error
+        alert(error.error.text);
+      });
+  }
+
+
+
+.. code-block:: html
+  :caption: ``main.component.html``
+
+  <div class="container">
+    <div class="row">
+      <div class="col" *ngFor="let case of cases">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{ case.image['300px'] }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ case.name }}</h5>
+            <p class="card-text">SKUS: <br> {{ case.skus}}</p>
+            <div class="input-group">
+               <input type="number" class="form-control" placeholder="Keys" aria-label="keys" value="1" min="1" #keys>
+               <div class="input-group-append">
+                 <span class="input-group-text btn btn-primary" (click)="openCase(case.id, keys.value)">Open</span>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+.. Hint:: More examples following very soon...

@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Backend (Server) &mdash; WAX ExpressTrade 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Frontend (Website)" href="frontend.html" />
+    <link rel="prev" title="Setup" href="setup.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial_testing.html">Initial Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Backend (Server)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-1">Step 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2">Step 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code-explanation">Code explanation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#let-s-try-it-out">Let’s try it out</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3">Step 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-examples">Additional Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-1">Example 1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-test-it">How To Test It</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-2">Example 2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Explanation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="frontend.html">Frontend (Website)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/overview.html">Quick Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/icase.html">ICase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/icasesite.html">ICaseSite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iethereum.html">IEthereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iitem.html">IItem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/itrade.html">ITrade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iuser.html">IUser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/additional.html">Additional Information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WAX ExpressTrade</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Backend (Server)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/backend.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="backend-server">
+<span id="sec-backend"></span><h1>Backend (Server)<a class="headerlink" href="#backend-server" title="Permalink to this headline">¶</a></h1>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">The video for this parts can be found <a class="reference external" href="https://www.youtube.com/watch?v=Y-GT6gRiUr4">here</a></p>
+</div>
+<div class="line-block">
+<div class="line">This section will be about how to request data from the WAX ExpressTrade API and how to bring this data to the frontend (website) so the user.</div>
+<div class="line">For this purpose we will create a simple HTTP server in JavaScript with the help of <a class="reference external" href="https://nodejs.org/en/">Node.js</a>.</div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">All the code written below is also available on <a class="reference external" href="https://github.com/TheDevelopingAlex/WAX-ExpressTrade-API/tree/master/example/backend">GitHub</a>.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">In my opinion the easiest way to get started with an HTTP server is to create an Node.js HTTP Server. We will use the very popular package <a class="reference external" href="https://www.npmjs.com/package/express">express</a> for this purpose.</div>
+<div class="line">But first let’s talk about the requirements to get started</div>
+</div>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>We will need <a class="reference external" href="https://nodejs.org/en/">Node.js</a>.</dt>
+<dd><ul class="first last">
+<li>Installation guide for <a class="reference external" href="http://blog.teamtreehouse.com/install-node-js-npm-windows">Windows</a></li>
+<li>Installation guide for <a class="reference external" href="https://nodejs.org/en/download/package-manager/">Linux (all versions)</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>A more advanced text editor than Notepad in Windows to write our code. Recommended free text editors:</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://atom.io/">Atom</a></li>
+<li><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> (only for Windows)</li>
+<li><a class="reference external" href="https://www.sublimetext.com/">Sublime Text</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>(Optional and only for Windows users) A different console</dt>
+<dd><ul class="first last">
+<li>I personally do not like the command prompt in Windows</li>
+<li>My favorite console so far is the <a class="reference external" href="https://git-scm.com/">GIT Console</a> (You will see why later on)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>Once you installed <a class="reference external" href="https://nodejs.org/en/">Node.js</a> and chose your text editor we can start coding. I will use the following setup for this tutorial</p>
+<ul class="simple">
+<li>Node version 8.11.4 (you can check it by simply opening a console and by typing in <code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">--version</span></code>)</li>
+<li>Atom (1.30.0) as my text editor with the <a class="reference external" href="https://atom.io/packages/file-icons">File Icons Package</a>  (just for cosmetic)</li>
+<li>Because I am on Windows 10, I am going to use the GIT console</li>
+</ul>
+</div>
+<div class="section" id="step-1">
+<h2>Step 1<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h2>
+<p>We need to create all the dependencies for our Node.js Server</p>
+<ol class="arabic simple">
+<li>Create a folder where you want to put your server</li>
+<li>Open up a console and direct into that newly created directory (if you are using the GIT console on Windows, you can simply right-click and choose “Git Bash Here”)</li>
+<li><dl class="first docutils">
+<dt>Once you are in the desired directory type in <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">init</span></code> to start the setup</dt>
+<dd><ul class="first last">
+<li><strong>package name</strong> Choose the name of your project. Usually it picks up the name of your folder. I will call it <code class="docutils literal notranslate"><span class="pre">wax_tut</span></code>.</li>
+<li><strong>version</strong> Doesn’t matter at all, just hit Enter</li>
+<li><strong>description</strong> Type in something like “This is a tutorial on how to implement the WAX ExpressTrade API” or if you want to skip it, hit Enter</li>
+<li><strong>entry point</strong> This is important. Here you have to choose the name of your main server file. You can either choose the default value “index.js” or rename it to something like <code class="docutils literal notranslate"><span class="pre">server.js</span></code>. I will call it <code class="docutils literal notranslate"><span class="pre">server.js</span></code></li>
+<li><strong>test command</strong> Skip this for now</li>
+<li><strong>git repository</strong> If you already got an git repository, you can type it in here. Otherwise you can skip this.</li>
+<li><strong>keywords</strong> Define some or skip, doesn’t really matter</li>
+<li><strong>Author</strong> Basically your name</li>
+<li><strong>license</strong> Just hit Enter</li>
+<li>Check your inputs and confirm with <code class="docutils literal notranslate"><span class="pre">yes</span></code> (Don’t worry you can change the values afterwards)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Create a JavaScript file with the name you chose at <code class="docutils literal notranslate"><span class="pre">entry</span> <span class="pre">point</span></code>. In this case you need to create a file called <em>server.js</em></li>
+<li>Open this file with your desired text editor</li>
+</ol>
+</div>
+<div class="section" id="step-2">
+<h2>Step 2<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h2>
+<p>In Step 1 we created our project and our server file. In this part we will set up the basic structure of our server and test it if everything works.</p>
+<ol class="arabic simple">
+<li>Double-Check your folder if you see both the <code class="docutils literal notranslate"><span class="pre">package.json</span></code> and <code class="docutils literal notranslate"><span class="pre">server.js</span></code> file.</li>
+<li><dl class="first docutils">
+<dt>Install the dependencies we need for the HTTP Server</dt>
+<dd><ul class="first last">
+<li>As mentioned earlier, we will use <a class="reference external" href="https://www.npmjs.com/package/express">express</a> for our HTTP server.</li>
+<li>Open up your console again and type in <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">--save</span> <span class="pre">express</span></code>. This will install the express package and with the option <code class="docutils literal notranslate"><span class="pre">--save</span></code> you will also save the dependency to your <code class="docutils literal notranslate"><span class="pre">package.json</span></code> file, so you always know what dependencies are install in your “node_modules” folder</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Paste this basic HTTP server into your <code class="docutils literal notranslate"><span class="pre">server.js</span></code> file</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">()</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="code-explanation">
+<h3>Code explanation<a class="headerlink" href="#code-explanation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">express</span> <span class="pre">=</span> <span class="pre">require('express')</span></code> First of all we implement our express package so we can use all it’s functions.</li>
+<li><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">app</span> <span class="pre">=</span> <span class="pre">express()</span></code> Afterwards we create an instance of the class so we can access every function.</li>
+<li><dl class="first docutils">
+<dt>Next we create our first route that will send a response once it gets called.</dt>
+<dd><ul class="first last">
+<li>But the method has to be GET and the route must be “/” to access it.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>The last part is on which port our server should listen. Keep <code class="docutils literal notranslate"><span class="pre">3000</span></code> for now, but you can always change it as you wish.</li>
+</ul>
+</div>
+<div class="section" id="let-s-try-it-out">
+<h3>Let’s try it out<a class="headerlink" href="#let-s-try-it-out" title="Permalink to this headline">¶</a></h3>
+<p>So if you pasted in this code and saved it to the <code class="docutils literal notranslate"><span class="pre">server.js</span></code> file, go over to your console again (make sure you are in the right directory) and type in <code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">server.js</span></code> to boot up the server.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For testing purpose I recommend the package <code class="docutils literal notranslate"><span class="pre">nodemon</span></code> so the server simply restarts every time we change something. Otherwise you would have to cancel it with CTRL+C and restart it with <code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">server.js</span></code>. Install the package with <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">nodemon</span></code> and start your server with <code class="docutils literal notranslate"><span class="pre">nodemon</span> <span class="pre">server.js</span></code></p>
+</div>
+<div class="line-block">
+<div class="line">Once your server is running either go to your browser or open up Postman and type in <code class="docutils literal notranslate"><span class="pre">127.0.0.1:3000</span></code>. (This is your local IP-Address on your computer)</div>
+<div class="line">If you are being greeted with “Hello World” you have successfully created your HTTP server in JavaScript</div>
+</div>
+</div>
+</div>
+<div class="section" id="step-3">
+<h2>Step 3<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Your HTTP server is up and running and you have successfully accessed it. Time to request data from the WAX WAX ExpressTrade API.</div>
+<div class="line">So the basic idea behind this</div>
+</div>
+<ol class="arabic simple">
+<li>We request something from OUR HTTP server like we did to check if the server is working e.g. <code class="docutils literal notranslate"><span class="pre">127.0.0.1:3000/caseschema</span></code>.</li>
+<li>The server should request data from the WAX ExpressTrade API before it sends the response back to us.</li>
+<li>Instead of “Hello World” we should see data from the ExpressTrade API.</li>
+</ol>
+<p>Let’s see how we can do that.</p>
+<ol class="arabic simple">
+<li>We need another package to request data from other sources. For this we will use <a class="reference external" href="https://www.npmjs.com/package/axios">axios</a>.</li>
+<li>Head to your console and press CTRL+C to stop the server.</li>
+<li>Type in <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">--save</span> <span class="pre">axios</span></code> to install the package.</li>
+<li>Head over to the text editor and change the code.</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Packages</span>
+<span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">Axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;axios&#39;</span><span class="p">);</span>
+
+<span class="c1">// Variables</span>
+<span class="kd">var</span> <span class="nx">vgoURL</span> <span class="o">=</span> <span class="s2">&quot;https://api-trade.opskins.com&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">vgoAPIKey</span> <span class="o">=</span> <span class="s2">&quot;YOUR API KEY&quot;</span><span class="p">;</span>
+
+<span class="c1">// Variable for WAX ExpressTrade requests</span>
+<span class="kd">var</span> <span class="nx">vgoAPI</span> <span class="o">=</span> <span class="nx">Axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="nx">baseURL</span><span class="o">:</span> <span class="nx">vgoURL</span><span class="p">,</span>
+  <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">Authorization</span><span class="o">:</span> <span class="s1">&#39;Basic &#39;</span> <span class="o">+</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">vgoAPIKey</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">),</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="c1">// create express server</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">()</span>
+
+<span class="c1">// route 1 (simple GET request)</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/caseschema&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">vgoAPI</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/ICase/GetCaseSchema/v1&#39;</span><span class="p">);</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// start server</span>
+<span class="kd">var</span> <span class="nx">listener</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Listening on port &#39;</span> <span class="o">+</span> <span class="nx">listener</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">port</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">So the code changed quite a bit, let’s go over it real quick and talk about how you can customize it.</div>
+<div class="line">So following changes have been made:</div>
+</div>
+<ol class="arabic simple">
+<li>I added the axios package that we use to request the data from the API</li>
+<li>Two new variables have been added <code class="docutils literal notranslate"><span class="pre">vgoURL</span></code> and <code class="docutils literal notranslate"><span class="pre">vgoAPIKey</span></code>. You do not need to touch the <code class="docutils literal notranslate"><span class="pre">vgoURL</span></code> but you have to paste in your generated VGO API Key (<strong>Not the Base64 encoded one, but the plain VGP API Key</strong>)</li>
+<li>Afterwards I created a new instance of axios and saved it to the variable <code class="docutils literal notranslate"><span class="pre">vgoAPI</span></code>. This comes in pretty handy because later on we only need to call the variable <code class="docutils literal notranslate"><span class="pre">vgoAPI</span></code> to make a request to the actual API. This request will always have the “Authorization Key” in it, so we don’t have to worry about that.</li>
+<li><dl class="first docutils">
+<dt>I made some changes to the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/</span></code> route and renamed it <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/caseschema</span></code>. It now requests data from the WAX ExpressTrade API. You may wonder why there is an async/await in it. I’ll explain this as short as possible.</dt>
+<dd><ul class="first last">
+<li>The quick and easy answer is, that the <code class="docutils literal notranslate"><span class="pre">async</span></code> which stands for “asynchronous” prevents Node.js to do things at the same time.</li>
+<li>“Asynchronous” means it is not existing or occurring at the same time.</li>
+<li>If don’t use the async/await your response would be empty because Node.js is trying to do this one function at the same time.</li>
+<li>The request/response to the WAX ExpressTrade API needs more time than our server needs to respond to the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/caseschema</span></code> call.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>No we send the <code class="docutils literal notranslate"><span class="pre">response.data</span></code> as a response instead of “Hello World”</li>
+<li>I changed to code on how the server starts, it does the same but will show you a console entry when the server has been started successfully</li>
+</ol>
+<div class="line-block">
+<div class="line">So once again either head over to your browser or Postman (this time I highly recommend Postman because it will be a lot of JSON data) and try out what results you get.</div>
+<div class="line">You should get a list off all the available cases (name, image) and what item skus are in it.</div>
+</div>
+</div>
+<div class="section" id="additional-examples">
+<h2>Additional Examples<a class="headerlink" href="#additional-examples" title="Permalink to this headline">¶</a></h2>
+<p>This section is about some another examples of how to use the WAX ExpressTrade API.</p>
+<div class="section" id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">GET request with additional parameters</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// route 2 (GET request with additional parameters)</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/keycount&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">trade_url</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">trade_url</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">trade_url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;No trade url provided&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">let</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">vgoAPI</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="sb">`/ICaseSite/GetKeyCount/v1?trade_url=</span><span class="si">${</span><span class="nx">trade_url</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="explanation">
+<h4>Explanation<a class="headerlink" href="#explanation" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>So this this route requests the key amount a specific user has. Again we use a GET method but this time we have to provide an additional parameter in the URL called <code class="docutils literal notranslate"><span class="pre">trade_url</span></code>.</li>
+<li>In express you can access those URL parameters via <code class="docutils literal notranslate"><span class="pre">req.query.YOUR_PARAMETER</span></code>. Easy to use and fast to understand. So you save the <code class="docutils literal notranslate"><span class="pre">req.query.trade_url</span></code> parameter to a variable called <code class="docutils literal notranslate"><span class="pre">trade_url</span></code>.</li>
+<li>Afterwards we quickly check for this parameter if it has been provided. If not provided we simply return a response. (Sidenote: You need to type <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">res.send(&quot;...&quot;)</span></code> to stop the function from continuing. If there is no <code class="docutils literal notranslate"><span class="pre">return</span></code> provided, the code will continue and fail at the request.)</li>
+<li>Anyways, with a provided <code class="docutils literal notranslate"><span class="pre">trade_url</span></code> we request the data from the server. Take a look and remember on how to add the query to the URL <code class="docutils literal notranslate"><span class="pre">?trade_url=${trade_url}</span></code>, you will probably need that for other requests as well.</li>
+<li>And for the last part we send the response back to the request.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can only request the keycount of people that have been registered on OPSkins.</p>
+</div>
+</div>
+<div class="section" id="how-to-test-it">
+<h4>How To Test It<a class="headerlink" href="#how-to-test-it" title="Permalink to this headline">¶</a></h4>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are familiar on URL parameters and how to use them properly you can probably skip this part and just test your newly created route.</p>
+</div>
+<p>For those that are not comfortable with, I got you</p>
+<ul class="simple">
+<li>URL parameters are additional string in the URL.</li>
+<li>For example if you go to <code class="docutils literal notranslate"><span class="pre">https://www.google.com</span></code> you won’t see any parameters in the URL.</li>
+<li>But once you search for something like <em>wax expresstrade</em>, Google will add parameters to its URL. The URL will look something like this <code class="docutils literal notranslate"><span class="pre">https://www.google.com/search?source=hp&amp;ei=5m6IW6r0LY_YwQL2ma_ACg</span> <span class="pre">...</span></code> (Not the full URL)</li>
+<li>So the URL has a parameter for <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">ei</span></code> and so on and so forth.</li>
+<li>In our case the parameter should have the name <code class="docutils literal notranslate"><span class="pre">trade_url</span></code> and has to be provided.</li>
+<li>This means our URL has to look like this <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:3000/keycount?trade_url=VALID_TRADE_URL</span></code> to successfully request data from the API</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you encounter some kind of error it will probably be something like <code class="docutils literal notranslate"><span class="pre">UnhandledPromiseRejectionWarning</span></code> and the API responded with something like <code class="docutils literal notranslate"><span class="pre">Request</span> <span class="pre">failed</span> <span class="pre">with</span> <span class="pre">status</span> <span class="pre">code</span> <span class="pre">400</span></code>. I will talk about that in the next example <strong>(Explanation, 4.)</strong>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">POST request with additional parameters</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// used to access the body as it was JSON</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+
+<span class="c1">// route 3 (POST request with additional parameters)</span>
+<span class="kd">var</span> <span class="nx">affiliateAddress</span> <span class="o">=</span> <span class="s2">&quot;YOUR ETHEREUM ADRESS&quot;</span><span class="p">;</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/opencase&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">trade_url</span>  <span class="o">||</span> <span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">caseId</span> <span class="o">||</span> <span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">amount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;One or more parameters are missing!&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">vgoAPI</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/ICaseSite/SendKeyRequest/v1&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">trade_url</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">trade_url</span><span class="p">,</span>
+    <span class="nx">case_id</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">caseId</span><span class="p">,</span>
+    <span class="nx">amount</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">amount</span><span class="p">,</span>
+    <span class="nx">affiliate_eth_address</span><span class="o">:</span> <span class="nx">affiliateAddress</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+  <span class="p">})</span>
+
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h4>Explanation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>So first of all this is a more advanced example but a very efficient and easy to understand one.</p>
+<ol class="arabic simple">
+<li>We are using a middleware for express to access the body as it was JSON. <code class="docutils literal notranslate"><span class="pre">app.use(express.json())</span></code></li>
+<li>We created a variable <code class="docutils literal notranslate"><span class="pre">affiliateAddress</span></code>. You need to put your Ethereum Address to receive the commission for an opened case.</li>
+<li>A new route has been created, but this time we do not use the GET method, for this example we are using the POST method.</li>
+<li>Once again we check for three parameters that must be included in the request. But this time we are sending it via the body so the parameters won’t be in the URL.</li>
+<li><dl class="first docutils">
+<dt>A new way of requesting data from the WAX ExpressTrade API</dt>
+<dd><ul class="first last">
+<li>First of all we are using the POST method again, that is very important because only the POST method will be recognized on this endpoint</li>
+<li>Second of all we are using a better way of handling the response and sending it back. This means we are using the option of “Promises”. Thankfully axios got our back and provides a great and standard way of handling “Promises”</li>
+<li>So we do not save the response to a variable called <code class="docutils literal notranslate"><span class="pre">response</span></code> like we did in all the other routes. Instead we use the <code class="docutils literal notranslate"><span class="pre">then()</span></code> callback option.</li>
+<li>Once our request has succeeded, the <code class="docutils literal notranslate"><span class="pre">then()</span></code> function will be called and we can simply send our response as we did in the previous routes</li>
+<li>The big advantage of “Promises” is the <code class="docutils literal notranslate"><span class="pre">catch()</span></code> function.</li>
+<li>If there is any error it will be handled by this function. If the request wasn’t successful, the “message” can be found by the given query <code class="docutils literal notranslate"><span class="pre">error.response.data.message</span></code> (the data is an JSON-Object)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">If you are thinking of serious development I highly recommend using “Promises”. Not using “Promises” actually is deprecate!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="frontend.html" class="btn btn-neutral float-right" title="Frontend (Website)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setup.html" class="btn btn-neutral" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, WAX ExpressTrade
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

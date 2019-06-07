@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; WAX ExpressTrade 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Initial Testing" href="initial_testing.html" />
+    <link rel="prev" title="Tutorial/Documentation" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-information">Basic information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#api">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#server-http">Server &amp; HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#json">JSON</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vgo-api-key">VGO API Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethereum-address">Ethereum Address</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="initial_testing.html">Initial Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backend.html">Backend (Server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frontend.html">Frontend (Website)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/overview.html">Quick Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/icase.html">ICase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/icasesite.html">ICaseSite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iethereum.html">IEthereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iitem.html">IItem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/itrade.html">ITrade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/iuser.html">IUser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces/additional.html">Additional Information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WAX ExpressTrade</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/getting_started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">The video for this parts can be found <a class="reference external" href="https://www.youtube.com/watch?v=y-E3WUB7VHA">here</a></p>
+</div>
+<p>This document will show you how to implement the WAX ExpressTrade to your website.</p>
+<div class="admonition-info admonition">
+<p class="first admonition-title">Info</p>
+<p class="last">If you already have a VGO API Key and an Ethereum Adress you can skip this section.</p>
+</div>
+<div class="section" id="basic-information">
+<h2>Basic information<a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h2>
+<p>The documentation requires a little bit of knowledge about the following points.</p>
+<div class="section" id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<p>An application program interface (API) is a set of routines, protocols, and tools for building software applications.
+Basically, an API specifies how software components should interact. Additionally, APIs are used when programming graphical user interface (GUI) components.
+A good API makes it easier to develop a program by providing all the building blocks. A programmer then puts the blocks together.
+So this means it is even easier to implement the WAX ExpressTrade features.</p>
+</div>
+<div class="section" id="server-http">
+<h3>Server &amp; HTTP<a class="headerlink" href="#server-http" title="Permalink to this headline">¶</a></h3>
+<p>So the server usually handles all the requests made to the API. For better structure you will need some kind of HTTP server to make requests to the WAX ExpressTrade API. HTTP related terms like GET and POST shouldn’t be a problem as well.</p>
+</div>
+<div class="section" id="json">
+<h3>JSON<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h3>
+<p>JSON is very popular nowadays, especially with these so called REST-API’s.
+The WAX ExpressTrade API uses JSON to format the information. Every requests needs some kind of JSON-structure. The response of every API-endpoint will also always return an JSON-Object (Unless you encounter some kind of other error).</p>
+</div>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>To get in touch with WAX ExpressTrade API it only requires three things. We will go over them, what they do and how to fulfill them.</p>
+<div class="section" id="vgo-api-key">
+<h3>VGO API Key<a class="headerlink" href="#vgo-api-key" title="Permalink to this headline">¶</a></h3>
+<p>For most of the WAX ExpressTrade API you will need to provide an API Key. (To identify yourself) You can simply generate one by using the following method.</p>
+<ol class="arabic simple">
+<li>Open up some kind of console (Windows Command Prompt, Linux/Mac Terminal)</li>
+<li>Copy the line beneath and change the <code class="docutils literal notranslate"><span class="pre">site_url</span></code> and <code class="docutils literal notranslate"><span class="pre">display_name</span></code> to a valid value. (This should be the name of your website)</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -d &#39;{&quot;site_url&quot;:&quot;http://yoursite.com&quot;,&quot;display_name&quot;:&quot;yoursite&quot;}&#39; -H &quot;Content-Type: application/json&quot; -X POST https://api-trade.opskins.com/IUser/CreateVCaseUser/v1/
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Wait for the response</li>
+</ol>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">You probably will receive a response like this (If not, the error should be returned. Try to adjust/edit your <code class="docutils literal notranslate"><span class="pre">curl</span></code> line and try again)</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+   <span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="mi">1535545650</span><span class="p">,</span>
+   <span class="nt">&quot;response&quot;</span><span class="p">:{</span>
+      <span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="s2">&quot;some kind of api key&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;user&quot;</span><span class="p">:{</span>
+         <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">-868</span><span class="p">,</span>
+         <span class="nt">&quot;steam_id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;display_name&quot;</span><span class="p">:</span><span class="s2">&quot;yoursite&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;avatar&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+         <span class="nt">&quot;twofactor_enabled&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+         <span class="nt">&quot;api_key_exists&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+         <span class="nt">&quot;sms_phone&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+         <span class="nt">&quot;contact_email&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+         <span class="nt">&quot;allow_twofactor_code_reuse&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+         <span class="nt">&quot;inventory_is_private&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+         <span class="nt">&quot;auto_accept_gift_trades&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+         <span class="nt">&quot;vcase_restricted&quot;</span><span class="p">:</span><span class="kc">true</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Your “VGO API Key” will be placed in the JSON-Object with the name “api_key”. Save it, you will need it later on</li>
+</ol>
+</div>
+<div class="section" id="ethereum-address">
+<h3>Ethereum Address<a class="headerlink" href="#ethereum-address" title="Permalink to this headline">¶</a></h3>
+<p>An Ethereum Address is needed for the key requests (to open cases). There are tons of Ethereum Wallets on the internet, nearly all of the are free to use.
+For the ease of use I’d recommend <a class="reference external" href="https://metamask.io/">MetaMask</a> or if you want it more secure maybe go for something like <a class="reference external" href="https://www.coinbase.com//">Coinbase</a>. The choice is up to you.
+At some point you should have an Ethereum Adress looking something like this: <code class="docutils literal notranslate"><span class="pre">0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe</span></code></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="initial_testing.html" class="btn btn-neutral float-right" title="Initial Testing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Tutorial/Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, WAX ExpressTrade
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
