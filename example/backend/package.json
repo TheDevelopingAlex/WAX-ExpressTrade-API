@@ -9,7 +9,7 @@
   "author": "Your Name",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "express": "^4.16.3"
   }
 }
